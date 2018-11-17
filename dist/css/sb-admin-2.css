@@ -1,6 +1,15 @@
 body {
   background-color: #f8f8f8;
 }
+
+/* CSS PROMETHEUS*/
+.right
+{
+  right: 0;
+  left: auto;
+}
+/*CSS PROMETHEUS*/
+
 #wrapper {
   width: 100%;
 }
