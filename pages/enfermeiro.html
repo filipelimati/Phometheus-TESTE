@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Phometheus</title>
+    <title>Prometheus</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -55,12 +55,11 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> Editar Perfil</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Configuracoes</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Alterar Senha</a>
+                        </li
+                        <li>
+                            <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                         </li>
                     </ul>
                 </li>
@@ -83,11 +82,17 @@
                             <a href="index.html"><i class="fa fa-home fa-fw"></i> Home</a>                            
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-user-md fa-fw"></i> Consultas</a>
+                            <a href="consulta.html"><i class="fa fa-user-md fa-fw"></i> Consultas</a>
+                        </li>
+                        <li>
+                            <a href="prontuario.html"><i class="fa fa-clipboard fa-fw"></i> Prontuários</a>                            
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-plus-circle fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="paciente.html">Paciente</a>
+                                </li>
                                 <li>
                                     <a href="medicos.html">Médico</a>
                                 </li>
@@ -95,23 +100,21 @@
                                     <a href="enfermeiro.html">Enfermeiro</a>
                                 </li>
                                 <li>
-                                    <a href="tecnico.html">Técnico de Enf.</a>
-                                </li>
-                                <li>
-                                    <a href="paciente.html">Paciente</a>
-                                </li>
+                                    <a href="tecnico.html">Técnico de Enfermagem</a>
+                                </li>                                
                                 <li>
                                     <a href="maqueiro.html">Maqueiro</a>
                                 </li>
+                                <li>
+                                    <a href="medicamento.html">Medicamento</a>                            
+                                </li>
+                                <li>
+                                    <a href="usuario.html">Usuário</a>                            
+                                </li>
                             </ul>
                             <!-- /.nav-second-level -->
-                        </li>
-                        <li>
-                            <a href="prontuario.html"><i class="fa fa-clipboard fa-fw"></i> Prontuário</a>                            
-                        </li>
-                        <li>
-                            <a href="medicamento.html"><i class="fa fa-medkit fa-fw"></i> Medicamentos</a>                            
-                        </li>
+                        </li>                        
+                        
                         <li>
                             <a href="#"><i class="fa fa-book fa-fw"></i> Sobre</a>
 
@@ -123,7 +126,6 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-
         <!-- Page Content -->
         <div id="page-wrapper">
           <div class="container-fluid">
