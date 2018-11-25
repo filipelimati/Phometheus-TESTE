@@ -149,125 +149,359 @@
                                     <li><a href="#Consultar" data-toggle="tab">Consultar</a>
                                     </li>
                                 </ul>
+
+                                <br>
+
                                 <div class="tab-content">
+                                    <!--aba de cadastro--> 
                                     <div class="tab-pane fade in active" id="Cadastrar">
-                                        <div class="row">                            
-                                            <form role="form">
+                                      <div class="row">                            
+                                          <form role="form">
 
-                                              <div class="form-group col-sm-12">
-                                                <label>* Nome:</label>
-                                                <input name="nome" type="text" class="form-control" placeholder="Digite seu nome">
-                                              </div>
+                                            <div class="form-group col-sm-7">
+                                              <label>* Nome:</label>
+                                              <input name="nome" type="text" class="form-control" placeholder="Digite seu nome">
+                                            </div>
 
-                                              <div class="form-group col-sm-12">
-                                                <label>* E-mail:</label>
-                            		                <input name="email" type="text" class="form-control" placeholder="Digite seu e-mail">
-                                              </div>
+                                            <div class="form-group col-sm-5">
+                                              <label>* E-mail:</label>
+                          		                <input name="email" type="text" class="form-control" placeholder="Digite seu e-mail">
+                                            </div>
 
-                                              <div class="form-group col-sm-6">
-                                                <label>Telefone:</label>
-                                                <input name="" type="text" class="form-control" placeholder="Digite seu telefone" id="telefone">
-                                              </div>
+                                            <div class="form-group col-sm-4">
+                                              <label>Telefone:</label>
+                                              <input name="" type="text" class="form-control" placeholder="Digite seu telefone" id="telefone">
+                                            </div>
 
-                                              <div class="form-group col-sm-6">
-                                                <label>Celular:</label>
-                            		                <input name="" type="text" class="form-control" placeholder="Digite seu número de celular" id="celular">
-                                              </div>
+                                            <div class="form-group col-sm-4">
+                                              <label>Celular:</label>
+                          		                <input name="" type="text" class="form-control" placeholder="Digite seu número de celular" id="celular">
+                                            </div>
 
-                                              <div class="form-group col-sm-6">
-                                                <label>Data de Nascimento:</label>
-                            		                <input name="" type="text" class="form-control" placeholder="Informe a data de nascimento" id="data">
-                                              </div>
+                                            <div class="form-group col-sm-4">
+                                              <label>Data de Nascimento:</label>
+                          		                <input name="" type="text" class="form-control" placeholder="Informe a data de nascimento" id="data">
+                                            </div>
 
-                            	              	<div class="form-group col-sm-6">
-                                                <label>Sexo:</label>
-                                                <select name="" class="form-control mr-sm-2">
-                                                  <option>Selecione</option>
-                                                  <option>Masculino</option>
-                                                  <option>Feminino</option>
-                                                </select>
-                                              </div>
+                                            <div class="form-group col-sm-3">
+                                              <label>CEP:</label>
+                                              <input name="" type="text" class="form-control" placeholder="Informe o CEP" id="cep">
+                                            </div>
 
-                                              <div class="form-group col-sm-4">
-                                                <label>CEP:</label>
-                                                <input name="" type="text" class="form-control" placeholder="Informe o CEP" id="cep">
-                                              </div>
+                                            <div class="form-group col-sm-9">
+                                                <label>Endereço:</label>
+                                                <input name="" type="text" placeholder="Infome o endereço" class="form-control">
+                                            </div>
 
-                                              <div class="form-group col-sm-8">
-                              		                <label>Endereço:</label>
-                              		                <input name="" type="text" placeholder="Infome o endereço" class="form-control">
-                              	            	</div>
+                                            <div class="form-group col-sm-2">
+                                                <label>Número:</label>
+                                                <input name="" type="text" placeholder="Número" class="form-control" >
+                                            </div>
 
-                                              <div class="form-group col-sm-4">
-                              		                <label>Número:</label>
-                              		                <input name="" type="text" placeholder="Número" class="form-control" >
-                              	            	</div>
+                                            <div class="form-group col-sm-4">
+                                                <label>Complemento:</label>
+                                                <input name="" type="text" placeholder="Complemento" class="form-control">
+                                            </div>
 
-                                              <div class="form-group col-sm-8">
-                              		                <label>Complemento</label>
-                              		                <input name="" type="text" placeholder="Complemento" class="form-control">
-                              	            	</div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Bairro:</label>
+                                                <input name="" type="text" placeholder="Infome o bairro" class="form-control">
+                                            </div>
 
-                                              <div class="form-group col-sm-6">
-                              		                <label>Bairro:</label>
-                              		                <input name="" type="text" placeholder="Infome o bairro" class="form-control">
-                              	            	</div>
+                                            <div class="form-group col-sm-6">
+                                                <label>Cidade:</label>
+                                                <input name="" type="text" placeholder="Informe a cidade" class="form-control">
+                                            </div>
 
-                                              <div class="form-group col-sm-6">
-                              		                <label>Cidade:</label>
-                              		                <input name="" type="text" placeholder="Informe a cidade" class="form-control">
-                              	            	</div>
+                                            <div class="form-group col-sm-6">
+                                              <label>Estado:</label>
+                                              <select name="" class="form-control mr-sm-2">
+                                                  <option>Selecione o estado</option>
+                                                  <option value="AC">Acre</option>
+                                                  <option value="AL">Alagoas</option>
+                                                  <option value="AP">Amapá</option>
+                                                  <option value="AM">Amazonas</option>
+                                                  <option value="BA">Bahia</option>
+                                                  <option value="CE">Ceará</option>
+                                                  <option value="DF">Distrito Federal</option>
+                                                  <option value="ES">Espirito Santo</option>
+                                                  <option value="GO">Goiás</option>
+                                                  <option value="MA">Maranhão</option>
+                                                  <option value="MS">Mato Grosso do Sul</option>
+                                                  <option value="MT">Mato Grosso</option>
+                                                  <option value="MG">Minas Gerais</option>
+                                                  <option value="PA">Pará</option>
+                                                  <option value="PB">Paraíba</option>
+                                                  <option value="PR">Paraná</option>
+                                                  <option value="PE">Pernambuco</option>
+                                                  <option value="PI">Piauí</option>
+                                                  <option value="RJ">Rio de Janeiro</option>
+                                                  <option value="RN">Rio Grande do Norte</option>
+                                                  <option value="RS">Rio Grande do Sul</option>
+                                                  <option value="RO">Rondônia</option>
+                                                  <option value="RR">Roraima</option>
+                                                  <option value="SC">Santa Catarina</option>
+                                                  <option value="SP">São Paulo</option>
+                                                  <option value="SE">Sergipe</option>
+                                                  <option value="TO">Tocantins</option>
+                                              </select>
+                                            </div>
 
-                                              <div class="form-group col-sm-6">
-                            		                <label>Estado:</label>
-                            		                <select name="" class="form-control mr-sm-2">
-                            		                    <option>Selecione o estado</option>
-                            		                    <option value="AC">Acre</option>
-                            		                    <option value="AL">Alagoas</option>
-                            		                    <option value="AP">Amapá</option>
-                            		                    <option value="AM">Amazonas</option>
-                            		                    <option value="BA">Bahia</option>
-                            		                    <option value="CE">Ceará</option>
-                            		                    <option value="DF">Distrito Federal</option>
-                            		                    <option value="ES">Espirito Santo</option>
-                            		                    <option value="GO">Goiás</option>
-                            		                    <option value="MA">Maranhão</option>
-                            		                    <option value="MS">Mato Grosso do Sul</option>
-                            		                    <option value="MT">Mato Grosso</option>
-                            		                    <option value="MG">Minas Gerais</option>
-                            		                    <option value="PA">Pará</option>
-                            		                    <option value="PB">Paraíba</option>
-                            		                    <option value="PR">Paraná</option>
-                            		                    <option value="PE">Pernambuco</option>
-                            		                    <option value="PI">Piauí</option>
-                            		                    <option value="RJ">Rio de Janeiro</option>
-                            		                    <option value="RN">Rio Grande do Norte</option>
-                            		                    <option value="RS">Rio Grande do Sul</option>
-                            		                    <option value="RO">Rondônia</option>
-                            		                    <option value="RR">Roraima</option>
-                            		                    <option value="SC">Santa Catarina</option>
-                            		                    <option value="SP">São Paulo</option>
-                            		                    <option value="SE">Sergipe</option>
-                            		                    <option value="TO">Tocantins</option>
-                            		                </select>
-                                              </div>
+                          	              	<div class="form-group col-sm-6">
+                                              <label>Sexo:</label>
+                                              <select name="" class="form-control mr-sm-2">
+                                                <option>Selecione</option>
+                                                <option>Masculino</option>
+                                                <option>Feminino</option>
+                                              </select>
+                                            </div>                                             
 
-                                            </form>
-                                            <input type="submit" class="btn btn-primary col-sm-12" value="CADASTRAR">
+                                          </form>
+                                          <div class="col-md-7">
+                                            <!--alinhamento dos Botões-->
+                                          </div>                                    
+
+                                          <div class="col-md-2 col-sm-12 col-xs-6">
+                                            <button type="reset" class="btn btn-warning btn-block">LIMPAR</button>
+                                          </div>
+
+                                          <div class="col-md-3 col-sm-12 col-xs-6">
+                                            <button type="button" class="btn btn-primary btn-block">CADASTRAR</button>
+                                          </div>    
+                                      </div>
+                                    </div>
+
+
+                                    <!--aba de consulta-->  
+                                    <div class="tab-pane fade" id="Consultar">
+                                      <div class="row">
+                                        
+                                        <form role="form">
+                                          <div class="form-group col-sm-12">
+                                            <label>Buscar por:</label>                                        
+                                          </div>
+                                        </form>
+
+                                        <form role="form">                                    
+                                                                             
+                                          <div class="form-group col-sm-2">                                                                                 
+                                            <select class="form-control">                                              
+                                              <option>Nome</option>
+                                              <option>E-mail</option>                                            
+                                            </select>                                        
+                                          </div>
+
+                                          <div class="form-group col-sm-8">                                                                            
+                                            <input name="" type="text" class="form-control" placeholder="Descreva o que deseja buscar">
+                                          </div>
+
+                                          <div class="form-group col-sm-2">                                       
+                                            <button class="btn btn-primary btn-block" type="button"><i class="fa fa-search"></i> Buscar</button>
+                                          </div>
+
+                                        </form>
+
+                                        <br>
+
+                                        <!--tabelas-->
+                                        <div class="table-responsive col-xs-12 col-sm-12 col-md-12">
+                                          <label>Selecione o cadastro para editar:</label>
+                                          <table class="table table-bordered table-striped">
+                                              <thead>
+                                                <tr>
+                                                  <th>
+                                                    Código
+                                                  </th>
+                                                  <th>
+                                                    <small>Nome</small>
+                                                  </th>
+                                                  <th>
+                                                    <small>Laboratório</small>
+                                                  </th>
+                                                  <th>
+                                                    <small>Tarja</small>
+                                                  </th>
+                                                  <th>
+                                                    <small>Descrição</small>
+                                                  </th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                    <th class="text-muted"></th>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-muted"></th>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-muted"></th>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-muted"></th>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-muted"></th>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                </tr>
+                                                <tr>
+                                                    <th class="text-muted"></th>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                    <td class="text-muted"></td>
+                                                </tr>                                              
+                                              </tbody>
+                                          </table>
                                         </div>
+
+                                        <form role="form">
+
+                                            <div class="form-group col-sm-7">
+                                              <label>* Nome:</label>
+                                              <input name="nome" type="text" class="form-control" placeholder="Digite seu nome">
+                                            </div>
+
+                                            <div class="form-group col-sm-5">
+                                              <label>* E-mail:</label>
+                                              <input name="email" type="text" class="form-control" placeholder="Digite seu e-mail">
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                              <label>Telefone:</label>
+                                              <input name="" type="text" class="form-control" placeholder="Digite seu telefone" id="telefone">
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                              <label>Celular:</label>
+                                              <input name="" type="text" class="form-control" placeholder="Digite seu número de celular" id="celular">
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                              <label>Data de Nascimento:</label>
+                                              <input name="" type="text" class="form-control" placeholder="Informe a data de nascimento" id="data">
+                                            </div>
+
+                                            <div class="form-group col-sm-3">
+                                              <label>CEP:</label>
+                                              <input name="" type="text" class="form-control" placeholder="Informe o CEP" id="cep">
+                                            </div>
+
+                                            <div class="form-group col-sm-9">
+                                                <label>Endereço:</label>
+                                                <input name="" type="text" placeholder="Infome o endereço" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-sm-2">
+                                                <label>Número:</label>
+                                                <input name="" type="text" placeholder="Número" class="form-control" >
+                                            </div>
+
+                                            <div class="form-group col-sm-4">
+                                                <label>Complemento:</label>
+                                                <input name="" type="text" placeholder="Complemento" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <label>Bairro:</label>
+                                                <input name="" type="text" placeholder="Infome o bairro" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                                <label>Cidade:</label>
+                                                <input name="" type="text" placeholder="Informe a cidade" class="form-control">
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                              <label>Estado:</label>
+                                              <select name="" class="form-control mr-sm-2">
+                                                  <option>Selecione o estado</option>
+                                                  <option value="AC">Acre</option>
+                                                  <option value="AL">Alagoas</option>
+                                                  <option value="AP">Amapá</option>
+                                                  <option value="AM">Amazonas</option>
+                                                  <option value="BA">Bahia</option>
+                                                  <option value="CE">Ceará</option>
+                                                  <option value="DF">Distrito Federal</option>
+                                                  <option value="ES">Espirito Santo</option>
+                                                  <option value="GO">Goiás</option>
+                                                  <option value="MA">Maranhão</option>
+                                                  <option value="MS">Mato Grosso do Sul</option>
+                                                  <option value="MT">Mato Grosso</option>
+                                                  <option value="MG">Minas Gerais</option>
+                                                  <option value="PA">Pará</option>
+                                                  <option value="PB">Paraíba</option>
+                                                  <option value="PR">Paraná</option>
+                                                  <option value="PE">Pernambuco</option>
+                                                  <option value="PI">Piauí</option>
+                                                  <option value="RJ">Rio de Janeiro</option>
+                                                  <option value="RN">Rio Grande do Norte</option>
+                                                  <option value="RS">Rio Grande do Sul</option>
+                                                  <option value="RO">Rondônia</option>
+                                                  <option value="RR">Roraima</option>
+                                                  <option value="SC">Santa Catarina</option>
+                                                  <option value="SP">São Paulo</option>
+                                                  <option value="SE">Sergipe</option>
+                                                  <option value="TO">Tocantins</option>
+                                              </select>
+                                            </div>
+
+                                            <div class="form-group col-sm-6">
+                                              <label>Sexo:</label>
+                                              <select name="" class="form-control mr-sm-2">
+                                                <option>Selecione</option>
+                                                <option>Masculino</option>
+                                                <option>Feminino</option>
+                                              </select>
+                                            </div>                                             
+
+                                          </form>
+                                          <div class="col-md-7">
+                                            <!--alinhamento dos Botões-->
+                                          </div>                                    
+
+                                          <div class="col-md-2 col-sm-12 col-xs-6">
+                                            <button type="reset" class="btn btn-danger btn-block">EXCLUIR</button>
+                                          </div>
+
+                                          <div class="col-md-3 col-sm-12 col-xs-6">
+                                            <button type="button" class="btn btn-success btn-block">SALVAR</button>
+                                          </div>    
+
+                                        
+                                      </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- /.col-lg-12 -->
                         </div>
-                        <!-- /.row -->
+                            <!-- /.col-lg-12 -->
                     </div>
-                    <!-- /.container-fluid -->
+                        <!-- /.row -->
                 </div>
+                    <!-- /.container-fluid -->
+            </div>
                 <!-- /#page-wrapper -->
 
-            </div>
         </div>
+    </div>
     <!-- /#wrapper -->
 
     <!-- jQuery -->
