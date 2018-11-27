@@ -1,9 +1,11 @@
 <?php
+
+//Verificação de sessão
 include('conexao.php');
+
 if(empty($_POST['usuario']) || empty($_POST['senha'])){
-	header('location: index.php');
+	header('location: ../index.php');
 	exit();
-}
 
 $usuario = mysqli_real_escape_string($conexao, $_POST['usuario']);
 $senha = mysqli_real_escape_string($conexao, $_POST['senha']);	
@@ -16,10 +18,12 @@ $row = mysqli_num_rows($result);
 
 if($row == 1) {
 	$_SESSION['usuario'] = $usuario;
-	header('Location: pages/index.html');
+	header('Location: index.html');
 	exit();
+
 }else{
-	header('Location: index.php');
-	exit();
+	$_SESSION['msg'] = "Usuário e senha incorretos!";
+	header("Location: index.php")
+	
 }
 ?>
