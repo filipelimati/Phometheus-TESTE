@@ -1,3 +1,6 @@
+ <?php
+    session_start();
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -185,10 +188,16 @@
             
             <p id="profile-name" class="profile-name-card"></p>
             
-            <form class="form-signin">
+            <form class="form-signin" action="loginauthentication.php" method="POST">
                 <span id="reauth-email" class="reauth-email"></span>
                 <input type="text" id="inputEmail" name="usuario" class="form-control" placeholder="Usuário" required autofocus>
                 <input type="password" id="inputPassword" name="senha" class="form-control" placeholder="Senha" required>
+                <?php
+                            if(!empty($_SESSION['msg'])){
+                                echo "<p style='color: #f00; '>".$_SESSION['msg']."</p>";
+                                unset($_SESSION['msg']);
+                            }
+                ?>
                 <div id="remember" class="checkbox">
                     <label>
                         <input type="checkbox" value="remember-me"> Lembrar-me
