@@ -126,54 +126,68 @@
             </div>
             <!-- /.navbar-static-side -->
         </nav>
-        <!-- Page Content -->
+       <!-- Page Content -->
         <div id="page-wrapper">
-          <div class="container-fluid">
-              <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">Cadastro Enfermeiro</h1>
-                    </div>
-              </div>
+            <div class="container-fluid">
+
+                <br>
+                <br>
+
                 <div class="row">
-                  <div class="col-lg-12">
-                    <div class="panel panel-default">
-                      <div class="panel-body">
-                        <div class="row">
-                            <form action="valida.php" method="post" role="form">
+                    <div class="col-lg-12">
+                        <div class="panel panel-primary">
+
+                            <div class="panel-heading">
+                                <b>ENFERMEIRO</b>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="nav nav-tabs">
+                                    <li class="active"><a href="#Cadastrar" data-toggle="tab">Cadastrar</a>
+                                    </li>
+                                    <li><a href="#Consultar" data-toggle="tab">Consultar</a>
+                                    </li>
+                                </ul>
+
+                                <br>
+
+                                <div class="tab-content">
+
+                         <div class="row">
+                            <form role="form">
                               <div class="form-group col-md-6">
-                                <label for="coren">* COREN</label>
-                                <input name="" type="number" class="form-control" placeholder="Informe o número do COREN" required>
+                                <label>COREN</label>
+                                <input name="coren" type="number" class="form-control" placeholder="Informe o número do COREN" required autofocus>
                               </div>
 
                               <div class="form-group col-md-12">
-                                <label for="nome">* Nome</label>
-                    	          <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" required>
-                    	        </div>
+                                <label>Nome</label>
+                                <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" pattern="[a-zA-Z\s]+$" required>
+                              </div>
 
                               <div class="form-group col-sm-12">
-                    	           <label for="email">* E-mail</label>
-                    	           <input name="email" type="email" class="form-control" placeholder="aaa@gmail.com">
-                    					</div>
-
-                    					<div class="form-group col-sm-6">
-                                <label for="telFixo">Telefone fixo</label>
-                                <input name="" type="number" class="form-control" placeholder="(21) 3333-4444" id="telefone">
-                    	        </div>
+                                 <label>E-mail</label>
+                                 <input name="email" type="email" class="form-control" placeholder="Digite seu e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
+                              </div>
 
                               <div class="form-group col-sm-6">
-                                <label for="celular">Celular</label>
-                                <input name="" type="number" class="form-control" placeholder="(21) 99222-3344" id="celular">
-                    	        </div>
+                                <label>Telefone fixo</label>
+                                <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="10" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                              </div>
 
-                    					<div class="form-group col-sm-6">
-                                <label for="dataNasc">Data de Nascimento</label>
-                                <input name="" type="date" class="form-control" placeholder="dd/mm/aaaa" id="data" required>
-                    					</div>
+                              <div class="form-group col-sm-6">
+                                <label>Celular</label>
+                                <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                              </div>
 
-                    	        <br/>
+                              <div class="form-group col-sm-6">
+                                <label>Data de Nascimento</label>
+                                <input name="dataNasc" type="date" class="form-control" placeholder="dd/mm/aaaa" id="data" required>
+                              </div>
+
+                              <br/>
 
                               <div class="form-group col-sm-4">
-                                <label for="sexo">Sexo</label>
+                                <label>Sexo</label>
                                   <select class="form-control mr-sm-2" required>
                                     <option>Selecione</option>
                                     <option>Masculino</option>
@@ -181,80 +195,90 @@
                                   </select>
                               </div>
 
-                    					<div class="form-group col-sm-12">
-                                <label for="cep">CEP</label>
-                                <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" required>
-                    					</div>
+                              <div class="form-group col-sm-12">
+                                <label>Cep</label>
+                                <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" required>
+                              </div>
 
-                    					<div class="form-group col-sm-6">
-                                <label for="endereco">Endereço</label>
+                              <div class="form-group col-sm-6">
+                                <label>Endereço</label>
                                 <input name="endereco" id="endereco" type="text" placeholder="Infome o endereço" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-4">
-                                <label for="endNumero">Número</label>
-                                <input name="endNumero" id="endNumero" type="number" placeholder="Número" class="form-control" required>
+                                <label>Número</label>
+                                <input name="endNumero" id="endNumero" type="number" placeholder="Nº 1234" class="form-control" required>
                               </div>
 
-                    					<div class="form-group col-sm-12">
-                                <label for="complemento">Complemento</label>
+                              <div class="form-group col-sm-12">
+                                <label>Complemento</label>
                                 <input name="complemento" id="complemento" type="text" placeholder="Complemento" class="form-control" required>
                               </div>
 
-                    					<div class="form-group col-sm-6">
-                                <label for="bairro">Bairro</label>
+                              <div class="form-group col-sm-6">
+                                <label>Bairro</label>
                                 <input name="bairro" id="bairro" type="text" placeholder="Informe o bairro" class="form-control" required>
                               </div>
 
-                    	        <div class="form-group col-sm-6">
-                                <label for="cidade">Cidade</label>
+                              <div class="form-group col-sm-6">
+                                <label>Cidade</label>
                                 <input name="cidade" id="cidade" type="text" placeholder="Informe a cidade" class="form-control" required>
-                    					</div>
+                              </div>
 
-                    					<br/>
+                              <br/>
 
-                    					<div class="form-group col-sm-6">
-                                <label for="estado">Estado</label>
+                              <div class="form-group col-sm-6">
+                                <label>Estado</label>
                                   <select name="estado" id="estado" class="form-control mr-sm-2" required>
-              	                    <option>Selecione o estado</option>
-              	                    <option value="AC">Acre</option>
-              	                    <option value="AL">Alagoas</option>
-              	                    <option value="AP">Amapá</option>
-              	                    <option value="AM">Amazonas</option>
-              	                    <option value="BA">Bahia</option>
-              	                    <option value="CE">Ceará</option>
-              	                    <option value="DF">Distrito Federal</option>
-              	                    <option value="ES">Espirito Santo</option>
-              	                    <option value="GO">Goiás</option>
-              	                    <option value="MA">Maranhão</option>
-              	                    <option value="MS">Mato Grosso do Sul</option>
-              	                    <option value="MT">Mato Grosso</option>
-              	                    <option value="MG">Minas Gerais</option>
-              	                    <option value="PA">Pará</option>
-              	                    <option value="PB">Paraíba</option>
-              	                    <option value="PR">Paraná</option>
-              	                    <option value="PE">Pernambuco</option>
-              	                    <option value="PI">Piauí</option>
-              	                    <option value="RJ">Rio de Janeiro</option>
-              	                    <option value="RN">Rio Grande do Norte</option>
-              	                    <option value="RS">Rio Grande do Sul</option>
-              	                    <option value="RO">Rondônia</option>
-              	                    <option value="RR">Roraima</option>
-              	                    <option value="SC">Santa Catarina</option>
-              	                    <option value="SP">São Paulo</option>
-              	                    <option value="SE">Sergipe</option>
-              	                    <option value="TO">Tocantins</option>
+                                    <option>Selecione o estado</option>
+                                    <option value="AC">Acre</option>
+                                    <option value="AL">Alagoas</option>
+                                    <option value="AP">Amapá</option>
+                                    <option value="AM">Amazonas</option>
+                                    <option value="BA">Bahia</option>
+                                    <option value="CE">Ceará</option>
+                                    <option value="DF">Distrito Federal</option>
+                                    <option value="ES">Espirito Santo</option>
+                                    <option value="GO">Goiás</option>
+                                    <option value="MA">Maranhão</option>
+                                    <option value="MS">Mato Grosso do Sul</option>
+                                    <option value="MT">Mato Grosso</option>
+                                    <option value="MG">Minas Gerais</option>
+                                    <option value="PA">Pará</option>
+                                    <option value="PB">Paraíba</option>
+                                    <option value="PR">Paraná</option>
+                                    <option value="PE">Pernambuco</option>
+                                    <option value="PI">Piauí</option>
+                                    <option value="RJ">Rio de Janeiro</option>
+                                    <option value="RN">Rio Grande do Norte</option>
+                                    <option value="RS">Rio Grande do Sul</option>
+                                    <option value="RO">Rondônia</option>
+                                    <option value="RR">Roraima</option>
+                                    <option value="SC">Santa Catarina</option>
+                                    <option value="SP">São Paulo</option>
+                                    <option value="SE">Sergipe</option>
+                                    <option value="TO">Tocantins</option>
                                   </select>
                                 </div>
                             </form>
-                          <input type="submit" class="btn btn-primary col-sm-12" value="CADASTRAR">
-              	        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                            <div class="col-md-7">
+                              <!--alinhamento dos Botões-->
+                            </div>                                    
+
+                            <div class="col-md-2 col-sm-12 col-xs-6">
+                              <button type="reset" class="btn btn-warning btn-block">EXCLUIR</button>
+                            </div>
+
+                            <div class="col-md-3 col-sm-12 col-xs-6">
+                              <button type="button" class="btn btn-success btn-block">SALVAR</button>
+                            </div>
+                        </div>
+                    <!-- /.container-fluid -->
             </div>
+                <!-- /#page-wrapper -->
         </div>
+    </div>
+    <!-- /#wrapper -->
 
     <!-- jQuery -->
     <script src="../vendor/jquery/jquery.min.js"></script>
