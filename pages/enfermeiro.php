@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -151,10 +154,13 @@
                       <div class="tab-content">
 
                        <div class="row">
-                        <form role="form">
+                        <form role="form" action="cadastro.php" method="post">
+                          <?php
+                            $_SESSION['enfermeiro'] = "teste";
+                          ?>
                           <div class="form-group col-md-4">
                             <label>COREN</label>
-                            <input name="coren" type="number" class="form-control" placeholder="Informe o número do COREN" required autofocus>
+                            <input name="coren" type="text" class="form-control" placeholder="Informe o número do COREN" required autofocus>
                           </div>
 
                           <div class="form-group col-md-9">
@@ -173,12 +179,14 @@
 
                          <div class="form-group col-sm-3">
                           <label>Telefone fixo</label>
-                          <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="10" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                          <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" >
+                          <!--pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"-->
                         </div>
 
                         <div class="form-group col-sm-3">
                           <label>Celular</label>
-                          <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                          <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular" >
+                         <!-- pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$"-->
                         </div>
 
                         <div class="form-group col-sm-3">
@@ -190,7 +198,7 @@
 
                         <div class="form-group col-sm-3">
                           <label>Sexo</label>
-                          <select class="form-control mr-sm-2" required>
+                          <select class="form-control mr-sm-2" name="sexo" required>
                             <option>Selecione</option>
                             <option>Masculino</option>
                             <option>Feminino</option>
@@ -262,7 +270,7 @@
                             <option value="TO">Tocantins</option>
                           </select>
                         </div>
-                      </form>
+
                       <div class="col-md-7">
                         <!--alinhamento dos Botões-->
                       </div>                                    
@@ -272,8 +280,11 @@
                       </div>
 
                       <div class="col-md-3 col-sm-12 col-xs-6">
-                        <button type="button" class="btn btn-success btn-block">SALVAR</button>
+                        <button type="submit" class="btn btn-success btn-block">SALVAR</button>
                       </div>
+
+                      </form>
+
                     </div>
                     <!-- /.container-fluid -->
                   </div>
