@@ -2,7 +2,7 @@
     session_start();
  ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="utf-8">
     <meta name="robots" content="noindex, nofollow">
