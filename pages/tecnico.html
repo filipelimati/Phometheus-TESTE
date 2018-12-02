@@ -11,6 +11,51 @@
 
   <title>Prometheus</title>
 
+  <script type="text/javascript">
+      function fMasc(objeto,mascara) {
+        obj=objeto
+        masc=mascara
+        setTimeout("fMascEx()",1)
+      }
+      function fMascEx() {
+        obj.value=masc(obj.value)
+      }
+      function mTel(tel) {
+        tel=tel.replace(/\D/g,"")
+        tel=tel.replace(/^(\d)/,"($1")
+        tel=tel.replace(/(.{3})(\d)/,"$1)$2")
+        if(tel.length == 9) {
+          tel=tel.replace(/(.{1})$/,"-$1")
+        } else if (tel.length == 10) {
+          tel=tel.replace(/(.{2})$/,"-$1")
+        } else if (tel.length == 11) {
+          tel=tel.replace(/(.{3})$/,"-$1")
+        } else if (tel.length == 12) {
+          tel=tel.replace(/(.{4})$/,"-$1")
+        } else if (tel.length > 12) {
+          tel=tel.replace(/(.{4})$/,"-$1")
+        }
+        return tel;
+      }
+      function mCPF(cpf){
+        cpf=cpf.replace(/\D/g,"")
+        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+        cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+        return cpf
+      }
+      function mCEP(cep){
+        cep=cep.replace(/\D/g,"")
+        cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+        cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+        return cep
+      }
+      function mNum(num){
+        num=num.replace(/\D/g,"")
+        return num
+      }
+    </script>
+
   <!-- Bootstrap Core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -247,17 +292,17 @@
 
                        <div class="form-group col-sm-4">
                         <label>CPF</label>
-                        <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+                        <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
                     </div>
 
                     <div class="form-group col-sm-3">
                         <label>Telefone Residencial</label>
-                        <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="10" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                        <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
                     </div>
 
                     <div class="form-group col-sm-3">
                         <label>Telefone Celular</label>
-                        <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                        <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
                     </div>
 
                     <div class="form-group col-sm-3">
@@ -278,7 +323,7 @@
 
                     <div class="form-group col-sm-4">
                         <label>Cep</label>
-                        <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" required>
+                        <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
                     </div>
 
                     <div class="form-group col-sm-6">
@@ -448,17 +493,17 @@
 
 <div class="form-group col-sm-4">
     <label>CPF</label>
-    <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" required>
+    <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
 </div>
 
 <div class="form-group col-sm-3">
     <label>Telefone Residencial</label>
-    <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="10" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+    <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
 </div>
 
 <div class="form-group col-sm-3">
     <label>Telefone Celular</label>
-    <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+    <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
 </div>
 
 <div class="form-group col-sm-3">
@@ -479,7 +524,7 @@
 
 <div class="form-group col-sm-4">
     <label>Cep</label>
-    <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" required>
+    <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
 </div>
 
 <div class="form-group col-sm-6">
