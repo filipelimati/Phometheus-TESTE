@@ -260,7 +260,7 @@ session_start();
 
                           <div class="form-group col-sm-4">
                             <label>Cep</label>
-                            <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
+                            <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" onkeydown="javascript: fMasc( this, mCEP );" required>
                           </div>
 
                           <div class="form-group col-sm-6">
