@@ -97,7 +97,7 @@
             limpa_formulário_cep();
         }
     };
-  </script>  
+  </script> 
 
 
 </head>
@@ -229,37 +229,37 @@
                             <form role="form" method="get" action="."> 
 
                               <div class="form-group col-sm-2">
-                                <label>CPF</label>
+                                <label>CPF:</label>
                                 <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}">
                               </div>                              
 
                               <div class="form-group col-sm-6">
-                                <label>Nome</label>
+                                <label>Nome:</label>
                                 <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" pattern="[a-zA-Z\s]+$" required autofocus >
                               </div>                              
 
                               <div class="form-group col-sm-4">
-                                <label>E-mail</label>
+                                <label>E-mail:</label>
                                 <input name="email" type="email" class="form-control" placeholder="E-mail para envio de informação médica" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                               </div>
 
                               <div class="form-group col-sm-3">
-                                <label>Telefone</label>
-                                <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="11" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                                <label>Telefone Fixo:</label>
+                                <input name="fixo" type="text" id="telefone" class="form-control" placeholder="Digite seu telefone"  maxlength="11" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
                               </div>
 
                               <div class="form-group col-sm-3">
-                                <label>Celular</label>
-                                <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$">
+                                <label>Telefone Móvel:</label>
+                                <input name="celular" type="text" id="celular" class="form-control" placeholder="Digite seu número de celular" maxlength="11" id="celular">
                               </div>
 
                               <div class="form-group col-sm-3">
-                                <label>Data de Nascimento</label>
-                                <input name="dataNasc" type="date" class="form-control" placeholder="Informe a data de nascimento" id="data" required>
+                                <label>Data de Nascimento:</label>
+                                <input name="dataNasc" id="data" type="date" class="form-control" placeholder="Informe a data de nascimento"  required>
                               </div>
 
                               <div class="form-group col-sm-3">
-                                <label>Sexo</label>
+                                <label>Sexo:</label>
                                 <select name="sexo" class="form-control mr-sm-2" required>
                                   <option>Selecione</option>
                                   <option>Masculino</option>
@@ -273,32 +273,32 @@
                               </div>
 
                               <div class="form-group col-sm-8">
-                                <label>Logradouro</label>
+                                <label>Logradouro:</label>
                                 <input name="logradouro" id="rua" type="text" placeholder="Infome o endereço" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-2">
-                                <label>Número</label>
+                                <label>Número:</label>
                                 <input name="endNumero" type="number" placeholder="Número" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-5">
-                                <label>Complemento</label>
+                                <label>Complemento:</label>
                                 <input name="complemento" type="text" placeholder="Complemento" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-4">
-                                <label>Bairro</label>
+                                <label>Bairro:</label>
                                 <input name="bairro" id="bairro" type="text" placeholder="Infome o bairro" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-2">
-                                <label>Cidade</label>
+                                <label>Cidade:</label>
                                 <input name="cidade" id="cidade" type="text" placeholder="Informe a cidade" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-1">
-                                <label>Estado:</label> 
+                                <label>UF:</label> 
                                 <input name="estado" id="uf" type="text" class="form-control" required>                                 
                               </div>
 
