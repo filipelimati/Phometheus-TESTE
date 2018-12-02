@@ -259,8 +259,8 @@ session_start();
                           </div>
 
                           <div class="form-group col-sm-4">
-                            <label>Cep</label>
-                            <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" onkeydown="javascript: fMasc( this, mCEP );" required>
+                            <label>CEP</label>
+                            <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" onkeydown="javascript: fMasc( this, mCEP );" required>
                           </div>
 
                           <div class="form-group col-sm-6">
@@ -291,7 +291,7 @@ session_start();
                           <br/>
 
                           <div class="form-group col-sm-6">
-                            <label>Estado</label>
+                            <label>UF</label>
                             <select name="estado" id="estado" class="form-control mr-sm-2" required>
                               <option>Selecione o estado</option>
                               <option value="AC">Acre</option>
@@ -461,8 +461,8 @@ session_start();
                         </div>
 
                         <div class="form-group col-sm-4">
-                          <label>Cep</label>
-                          <input name="cep" id="cep" type="number" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" required>
+                          <label>CEP</label>
+                          <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" required>
                         </div>
 
                         <div class="form-group col-sm-6">
@@ -493,7 +493,7 @@ session_start();
                         <br/>
 
                         <div class="form-group col-sm-6">
-                          <label>Estado</label>
+                          <label>UF</label>
                           <select name="estado" id="estado" class="form-control mr-sm-2" required>
                             <option>Selecione o estado</option>
                             <option value="AC">Acre</option>
