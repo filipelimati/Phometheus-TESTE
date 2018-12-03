@@ -2,8 +2,6 @@
 session_start();
 include('conexao.php');
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
-if (isset($_SESSION['enfermeiro'])) { 
-
 
 $coren = $_POST ["coren"];
 $nome	= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel	
@@ -39,8 +37,8 @@ if (!$banco)
 
 $query = "INSERT INTO enfermeiro (coren,NOME,EMAIL,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
 VALUES ('$coren','$nome','$email','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
-unset($_SESSION['enfermeiro']);
-}
+
+
 
 mysqli_query($conexao,$query); //Realiza a consulta
  
@@ -56,8 +54,12 @@ if(mysqli_affected_rows($conexao) == 1){ //verifica se foi afetada alguma linha,
    /* echo "<p>Cadastro feito com sucesso</p>";
     echo '<a href="cadastro.html">Voltar para formulário de cadastro</a>'; //Apenas um link para retornar para o formulário de cadastro*/
 } else {
-    echo "Erro, não possível inserir no banco de dados";
+?>
+	<script>
+	alert('Erro, não possível inserir no banco de dados');
+	location.href="enfermeiro.php";
+	</script>
+  <?php  
 }
-
 //echo "Seu cadastro foi realizado com sucesso!<br>Agradecemos a atenção.";
 ?> 

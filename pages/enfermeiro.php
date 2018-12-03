@@ -57,7 +57,7 @@ session_start();
         num=num.replace(/\D/g,"")
         return num
       }
-    </script>
+  </script>
 
   <!-- Bootstrap Core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -173,7 +173,7 @@ session_start();
               <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-          </nav>
+        </nav>
           <!-- Page Content -->
           <div id="page-wrapper">
             <div class="container-fluid">
@@ -202,10 +202,7 @@ session_start();
                        <div class="tab-pane fade in active" id="Cadastrar">
 
                          <div class="row">
-                          <form role="form" action="cadastro.php" method="post">
-                            <?php
-                            $_SESSION['enfermeiro'] = "teste";
-                            ?>
+                          <form role="form" action="cadastro_enf.php" method="post">
                             <div class="form-group col-md-4">
                               <label>COREN</label>
                               <input name="coren" type="text" class="form-control" placeholder="Informe o número do COREN" required autofocus>
@@ -333,7 +330,7 @@ session_start();
                           </div>
 
                           <div class="col-md-3 col-sm-12 col-xs-6">
-                            <button type="button" class="btn btn-primary btn-block">CADASTRAR</button>
+                            <button type="submit" class="btn btn-primary btn-block">CADASTRAR</button>
                           </div>   
 
                         </form>

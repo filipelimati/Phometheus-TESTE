@@ -23,7 +23,7 @@
         body, html {
             height: 100%;
             background-repeat: no-repeat;
-            background-image: url("../img/login.jpg");/*linear-gradient(rgb(104, 145, 162), rgb(11, 97, 33));*/
+            background-image: url("../img/bg.jpg");/*linear-gradient(rgb(104, 145, 162), rgb(11, 97, 33));*/
         }
 
         .card-container.card {
