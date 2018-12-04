@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -12,49 +15,49 @@
   <title>Prometheus</title>
 
   <script type="text/javascript">
-      function fMasc(objeto,mascara) {
-        obj=objeto
-        masc=mascara
-        setTimeout("fMascEx()",1)
+    function fMasc(objeto,mascara) {
+      obj=objeto
+      masc=mascara
+      setTimeout("fMascEx()",1)
+    }
+    function fMascEx() {
+      obj.value=masc(obj.value)
+    }
+    function mTel(tel) {
+      tel=tel.replace(/\D/g,"")
+      tel=tel.replace(/^(\d)/,"($1")
+      tel=tel.replace(/(.{3})(\d)/,"$1)$2")
+      if(tel.length == 9) {
+        tel=tel.replace(/(.{1})$/,"-$1")
+      } else if (tel.length == 10) {
+        tel=tel.replace(/(.{2})$/,"-$1")
+      } else if (tel.length == 11) {
+        tel=tel.replace(/(.{3})$/,"-$1")
+      } else if (tel.length == 12) {
+        tel=tel.replace(/(.{4})$/,"-$1")
+      } else if (tel.length > 12) {
+        tel=tel.replace(/(.{4})$/,"-$1")
       }
-      function fMascEx() {
-        obj.value=masc(obj.value)
-      }
-      function mTel(tel) {
-        tel=tel.replace(/\D/g,"")
-        tel=tel.replace(/^(\d)/,"($1")
-        tel=tel.replace(/(.{3})(\d)/,"$1)$2")
-        if(tel.length == 9) {
-          tel=tel.replace(/(.{1})$/,"-$1")
-        } else if (tel.length == 10) {
-          tel=tel.replace(/(.{2})$/,"-$1")
-        } else if (tel.length == 11) {
-          tel=tel.replace(/(.{3})$/,"-$1")
-        } else if (tel.length == 12) {
-          tel=tel.replace(/(.{4})$/,"-$1")
-        } else if (tel.length > 12) {
-          tel=tel.replace(/(.{4})$/,"-$1")
-        }
-        return tel;
-      }
-      function mCPF(cpf){
-        cpf=cpf.replace(/\D/g,"")
-        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
-        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
-        cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
-        return cpf
-      }
-      function mCEP(cep){
-        cep=cep.replace(/\D/g,"")
-        cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
-        cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
-        return cep
-      }
-      function mNum(num){
-        num=num.replace(/\D/g,"")
-        return num
-      }
-    </script>
+      return tel;
+    }
+    function mCPF(cpf){
+      cpf=cpf.replace(/\D/g,"")
+      cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+      cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+      cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+      return cpf
+    }
+    function mCEP(cep){
+      cep=cep.replace(/\D/g,"")
+      cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+      cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+      return cep
+    }
+    function mNum(num){
+      num=num.replace(/\D/g,"")
+      return num
+    }
+  </script>
 
   <!-- Bootstrap Core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -75,12 +78,83 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
 
+      <!-- VALIDAR CEP -->
+      <script type="text/javascript" >
+
+        function limpa_formulário_cep() {
+            //Limpa valores do formulário de cep.
+            document.getElementById('rua').value=("");
+            document.getElementById('bairro').value=("");
+            document.getElementById('cidade').value=("");
+            document.getElementById('uf').value=("");            
+          }
+
+          function meu_callback(conteudo) {
+            if (!("erro" in conteudo)) {
+            //Atualiza os campos com os valores.
+            document.getElementById('rua').value=(conteudo.logradouro);
+            document.getElementById('bairro').value=(conteudo.bairro);
+            document.getElementById('cidade').value=(conteudo.localidade);
+            document.getElementById('uf').value=(conteudo.uf);            
+        } //end if.
+        else {
+            //CEP não Encontrado.
+            limpa_formulário_cep();
+            alert("CEP não encontrado.");
+          }
+        }
+        
+        function pesquisacep(valor) {
+
+        //Nova variável "cep" somente com dígitos.
+        var cep = valor.replace(/\D/g, '');
+
+        //Verifica se campo cep possui valor informado.
+        if (cep != "") {
+
+            //Expressão regular para validar o CEP.
+            var validacep = /^[0-9]{8}$/;
+
+            //Valida o formato do CEP.
+            if(validacep.test(cep)) {
+
+                //Preenche os campos com "..." enquanto consulta webservice.
+                document.getElementById('rua').value="...";
+                document.getElementById('bairro').value="...";
+                document.getElementById('cidade').value="...";
+                document.getElementById('uf').value="...";
+                
+                //Cria um elemento javascript.
+                var script = document.createElement('script');
+
+                //Sincroniza com o callback.
+                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+                //Insere script no documento e carrega o conteúdo.
+                document.body.appendChild(script);
+
+            } //end if.
+            else {
+                //cep é inválido.
+                limpa_formulário_cep();
+                alert("Formato de CEP inválido.");
+              }
+        } //end if.
+        else {
+            //cep sem valor, limpa formulário.
+            limpa_formulário_cep();
+          }
+        };
+      </script> 
+
+
     </head>
 
     <body>
 
       <div id="wrapper">
 
+        <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -184,14 +258,15 @@
                   <div class="panel panel-primary">
 
                     <div class="panel-heading">
-                      <b>PACIENTE</b>
+                      <b>MAQUEIRO</b>
                     </div>
 
                     <div class="panel-body">
                       <ul class="nav nav-tabs">
                         <li class="active"><a href="#Cadastrar" data-toggle="tab">Cadastrar</a>
                         </li>
-                        <li><a href="#Consultar" data-toggle="tab">Consultar</a></li>
+                        <li><a href="#Consultar" data-toggle="tab">Consultar</a>
+                        </li>
                       </ul>
 
                       <br>
@@ -200,35 +275,36 @@
                         <!--aba de cadastro--> 
                         <div class="tab-pane fade in active" id="Cadastrar">
                           <div class="row">                            
-                            <form role="form">
+                            <form role="form" action="cadastro_maq.php" method="post"> 
+
+                              <div class="form-group col-sm-2">
+                                <label>CPF</label>
+                                <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
+                              </div>                              
+
                               <div class="form-group col-sm-6">
                                 <label>Nome</label>
-                                <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" pattern="[a-zA-Z\s]+$" required autofocus >
-                              </div>
+                                <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" required autofocus >
+                              </div>                              
 
-                              <div class="form-group col-sm-6">
+                              <div class="form-group col-sm-4">
                                 <label>E-mail</label>
-                                <input name="email" type="text" class="form-control" placeholder="Digite seu e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                                <input name="email" type="email" class="form-control" placeholder="E-mail para envio de informação médica" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
                               </div>
 
-                              <div class="form-group col-sm-4">
-                                <label>CPF</label>
-                                <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
+                              <div class="form-group col-sm-3">
+                                <label>Telefone Fixo</label>
+                                <input name="fixo" type="text" id="telefone" class="form-control" placeholder="Digite seu telefone"  maxlength="13" onkeydown="javascript: fMasc( this, mTel );">
                               </div>
 
-                              <div class="form-group col-sm-4">
-                                <label>Telefone Residencial</label>
-                                <input name="fixo" type="tel" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
-                              </div>
-
-                              <div class="form-group col-sm-4">
-                                <label>Telefone Celular</label>
-                                <input name="celular" type="tel" class="form-control" placeholder="Digite seu celular" maxlength="14" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+                              <div class="form-group col-sm-3">
+                                <label>Telefone Móvel</label>
+                                <input name="celular" type="text" id="celular" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" onkeydown="javascript: fMasc( this, mTel );">
                               </div>
 
                               <div class="form-group col-sm-3">
                                 <label>Data de Nascimento</label>
-                                <input name="dataNasc" type="date" class="form-control" placeholder="Informe a data de nascimento" id="data" required>
+                                <input name="dataNasc" id="data" type="date" class="form-control" placeholder="Informe a data de nascimento"  required>
                               </div>
 
                               <div class="form-group col-sm-3">
@@ -239,92 +315,55 @@
                                   <option>Feminino</option>
                                 </select>
                               </div>
-                              
-                              <div class="col-md-11">
-                                <!--alinhamento dos campos-->
-                              </div> 
 
-                              <div class="form-group col-sm-4">
+                              <div class="form-group col-sm-2">
                                 <label>CEP</label>
-                                <input name="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
+                                <input name="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" onblur="pesquisacep(this.value);" maxlength="10" onkeydown="javascript: fMasc( this, mCEP );" required>
                               </div>
 
-                              <div class="form-group col-sm-6">
+                              <div class="form-group col-sm-8">
                                 <label>Logradouro</label>
-                                <input name="logradouro" type="text" placeholder="Infome o endereço" class="form-control" required>
+                                <input name="logradouro" id="rua" type="text" placeholder="Infome o endereço" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-2">
                                 <label>Número</label>
-                                <input name="endNumero" type="text" placeholder="Número" class="form-control" required>
+                                <input name="endNumero" type="number" placeholder="Número" class="form-control" required>
                               </div>
 
-                              <div class="form-group col-sm-8">
+                              <div class="form-group col-sm-5">
                                 <label>Complemento</label>
                                 <input name="complemento" type="text" placeholder="Complemento" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-4">
                                 <label>Bairro</label>
-                                <input name="bairro" type="text" placeholder="Infome o bairro" class="form-control" required>
+                                <input name="bairro" id="bairro" type="text" placeholder="Infome o bairro" class="form-control" required>
                               </div>
 
-                              <div class="form-group col-sm-6">
+                              <div class="form-group col-sm-2">
                                 <label>Cidade</label>
-                                <input name="cidade" type="text" placeholder="Informe a cidade" class="form-control" required>
+                                <input name="cidade" id="cidade" type="text" placeholder="Informe a cidade" class="form-control" required>
                               </div>
 
-                              <div class="form-group col-sm-6">
-                                <label>UF</label>
-                                <select name="estado" class="form-control mr-sm-2" required>
-                                  <option>Selecione o estado</option>
-                                  <option value="AC">Acre</option>
-                                  <option value="AL">Alagoas</option>
-                                  <option value="AP">Amapá</option>
-                                  <option value="AM">Amazonas</option>
-                                  <option value="BA">Bahia</option>
-                                  <option value="CE">Ceará</option>
-                                  <option value="DF">Distrito Federal</option>
-                                  <option value="ES">Espirito Santo</option>
-                                  <option value="GO">Goiás</option>
-                                  <option value="MA">Maranhão</option>
-                                  <option value="MS">Mato Grosso do Sul</option>
-                                  <option value="MT">Mato Grosso</option>
-                                  <option value="MG">Minas Gerais</option>
-                                  <option value="PA">Pará</option>
-                                  <option value="PB">Paraíba</option>
-                                  <option value="PR">Paraná</option>
-                                  <option value="PE">Pernambuco</option>
-                                  <option value="PI">Piauí</option>
-                                  <option value="RJ">Rio de Janeiro</option>
-                                  <option value="RN">Rio Grande do Norte</option>
-                                  <option value="RS">Rio Grande do Sul</option>
-                                  <option value="RO">Rondônia</option>
-                                  <option value="RR">Roraima</option>
-                                  <option value="SC">Santa Catarina</option>
-                                  <option value="SP">São Paulo</option>
-                                  <option value="SE">Sergipe</option>
-                                  <option value="TO">Tocantins</option>
-                                </select>
-                              </div>  
-
-                              <div class="form-group col-sm-12">
-                                <label>Observações</label><br>
-                                <textarea type="text" class="form-control"></textarea><br>
+                              <div class="form-group col-sm-1">
+                                <label>UF</label> 
+                                <input name="estado" id="uf" type="text" class="form-control" required>                                 
                               </div>
+
+                              <div class="col-md-7">
+                                <!--alinhamento dos Botões-->
+                              </div>    
+
+                              <div class="col-md-2 col-sm-12 col-xs-6">
+                                <button type="reset" class="btn btn-warning btn-block">LIMPAR</button>
+                              </div>
+
+                              <div class="col-md-3 col-sm-12 col-xs-6">
+                                <button type="submit" class="btn btn-primary btn-block">CADASTRAR</button>
+                              </div> 
 
                             </form>
-                            <div class="col-md-7">
-                              <!--alinhamento dos Botões-->
-                            </div>                                    
-
-                            <div class="col-md-2 col-sm-12 col-xs-6">
-                              <button type="reset" class="btn btn-warning btn-block">LIMPAR</button>
-                            </div>
-
-                            <div class="col-md-3 col-sm-12 col-xs-6">
-                              <button type="button" class="btn btn-primary btn-block">CADASTRAR</button>
-                            </div>    
                           </div>
                         </div>
                         <div class="tab-pane fade" id="Consultar">
@@ -395,30 +434,29 @@
                             </div> 
 
                             <form role="form">                                                                    
-
-                              <div class="form-group col-sm-6">
+                              <div class="form-group col-sm-4">
                                 <label>Nome</label>
-                                <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" pattern="[a-zA-Z\s]+$" required autofocus >
-                              </div>
-
-                              <div class="form-group col-sm-6">
-                                <label>E-mail</label>
-                                <input name="email" type="text" class="form-control" placeholder="Digite seu e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                                <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" required autofocus >
                               </div>
 
                               <div class="form-group col-sm-4">
                                 <label>CPF</label>
-                                <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
+                                <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14">
                               </div>
 
                               <div class="form-group col-sm-4">
+                                <label>E-mail</label>
+                                <input name="email" type="email" class="form-control" placeholder="E-mail para envio de informação médica" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                              </div>
+
+                              <div class="form-group col-sm-3">
                                 <label>Telefone</label>
-                                <input name="fixo" type="tel" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+                                <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" onkeydown="javascript: fMasc( this, mTel );">
                               </div>
 
-                              <div class="form-group col-sm-4">
+                              <div class="form-group col-sm-3">
                                 <label>Celular</label>
-                                <input name="celular" type="tel" class="form-control" placeholder="Digite seu celular" maxlength="14" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+                                <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" onkeydown="javascript: fMasc( this, mTel );">
                               </div>
 
                               <div class="form-group col-sm-3">
@@ -434,14 +472,10 @@
                                   <option>Feminino</option>
                                 </select>
                               </div>
-                              
-                              <div class="col-md-11">
-                                <!--alinhamento dos campos-->
-                              </div> 
 
                               <div class="form-group col-sm-4">
                                 <label>CEP</label>
-                                <input name="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
+                                <input name="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" maxlength="10" onkeydown="javascript: fMasc( this, mCEP );" required>
                               </div>
 
                               <div class="form-group col-sm-6">
@@ -451,7 +485,7 @@
 
                               <div class="form-group col-sm-2">
                                 <label>Número</label>
-                                <input name="endNumero" type="text" placeholder="Número" class="form-control" required>
+                                <input name="endNumero" type="number" placeholder="Número" class="form-control" required>
                               </div>
 
                               <div class="form-group col-sm-8">
@@ -501,11 +535,6 @@
                                   <option value="SE">Sergipe</option>
                                   <option value="TO">Tocantins</option>
                                 </select>
-                              </div>  
-
-                              <div class="form-group col-sm-12">
-                                <label>Observações</label><br>
-                                <textarea type="text" class="form-control"></textarea><br>
                               </div>
 
                               <div class="col-md-6">
@@ -519,6 +548,7 @@
                               <div class="col-md-3 col-sm-3 col-xs-6">
                                 <button type="button" class="btn btn-success btn-block">SALVAR</button>
                               </div>
+
                             </div>
                           </div>
                         </div>

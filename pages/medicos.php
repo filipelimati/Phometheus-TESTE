@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -54,7 +57,7 @@
         num=num.replace(/\D/g,"")
         return num
       }
-    </script>
+  </script>
 
   <!-- Bootstrap Core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -74,74 +77,6 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-
-  <script type="text/javascript" >
-  
-    function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf').value=("");            
-    }
-
-    function meu_callback(conteudo) {
-        if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf').value=(conteudo.uf);            
-        } //end if.
-        else {
-            //CEP não Encontrado.
-            limpa_formulário_cep();
-            alert("CEP não encontrado.");
-        }
-    }
-        
-    function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
-                
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-            }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-        }
-    };
-  </script> 
 
 </head>
 
@@ -252,7 +187,7 @@
           <div class="panel panel-primary">
 
             <div class="panel-heading">
-              <b>TÉCNICO ENFERMAGEM</b>
+              <b>MÉDICO</b>
           </div>
           <!-- /.panel-heading -->
           <div class="panel-body">
@@ -269,10 +204,10 @@
             <div class="tab-content">
                 <div class="tab-pane fade in active" id="Cadastrar">                                  
                   <div class="row">
-                    <form role="form">
+                    <form role="form" action="cadastro_medico.php" method="post">
                         <div class="form-group col-md-4">
-                            <label>COREN</label>
-                            <input name="coren" type="number" class="form-control" placeholder="Informe o número do COREN" required autofocus>
+                            <label>CRM</label>
+                            <input name="coren" type="number" class="form-control" placeholder="Informe o número do CRM" required autofocus>
                         </div>
 
                         <div class="form-group col-md-11">
@@ -292,17 +227,17 @@
 
                        <div class="form-group col-sm-4">
                         <label>CPF</label>
-                        <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
+                        <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
                     </div>
 
                     <div class="form-group col-sm-3">
                         <label>Telefone Residencial</label>
-                        <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+                        <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" onkeydown="javascript: fMasc( this, mTel );">
                     </div>
 
                     <div class="form-group col-sm-3">
                         <label>Telefone Celular</label>
-                        <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+                        <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" onkeydown="javascript: fMasc( this, mTel );">
                     </div>
 
                     <div class="form-group col-sm-3">
@@ -314,7 +249,7 @@
 
                     <div class="form-group col-sm-3">
                         <label>Sexo</label>
-                        <select class="form-control mr-sm-2" required>
+                        <select name="sexo" class="form-control mr-sm-2" required>
                             <option>Selecione</option>
                             <option>Masculino</option>
                             <option>Feminino</option>
@@ -323,7 +258,7 @@
 
                     <div class="form-group col-sm-4">
                         <label>CEP</label>
-                        <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
+                        <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" maxlength="10" onkeydown="javascript: fMasc( this, mCEP );" required>
                     </div>
 
                     <div class="form-group col-sm-6">
@@ -396,7 +331,7 @@
                   </div>
 
                   <div class="col-md-3 col-sm-12 col-xs-6">
-                      <button type="button" class="btn btn-primary btn-block">CADASTRAR</button>
+                      <button type="submit" class="btn btn-primary btn-block">CADASTRAR</button>
                   </div>   
               </form>
           </div>                                                                  
@@ -417,7 +352,7 @@
           <div class="form-group col-sm-2">                                                                                 
             <select class="form-control">
               <option>Nome</option>
-              <option>COREN</option>                                         
+              <option>CRM</option>                                         
           </select>                                        
       </div>
 
@@ -441,10 +376,10 @@
           <small>Nome</small>
       </th>
       <th>
-          <small>COREN</small>
+          <small>CRM</small>
       </th>
       <th>
-          <small>CPF</small>
+        <small>CPF</small>
       </th>                                              
   </tr>
 </thead>
@@ -472,8 +407,8 @@
 <form role="form">                                                                    
 
   <div class="form-group col-md-4">
-    <label>COREN</label>
-    <input name="coren" type="number" class="form-control" placeholder="Informe o número do COREN" required autofocus>
+    <label>CRM</label>
+    <input name="coren" type="number" class="form-control" placeholder="Informe o número do CRM" required autofocus>
 </div>
 
 <div class="form-group col-md-11">
@@ -493,17 +428,17 @@
 
 <div class="form-group col-sm-4">
     <label>CPF</label>
-    <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
+    <input name="cpf" type="text" class="form-control" placeholder="Digite o CPF" onkeydown="javascript: fMasc( this, mCPF );" maxlength="14" required>
 </div>
 
 <div class="form-group col-sm-3">
     <label>Telefone Residencial</label>
-    <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+    <input name="fixo" type="phone" class="form-control" placeholder="Digite seu telefone" id="telefone" maxlength="13" onkeydown="javascript: fMasc( this, mTel );">
 </div>
 
 <div class="form-group col-sm-3">
     <label>Telefone Celular</label>
-    <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" pattern="\([0-9]{2}\) [0-9]{4,6}-[0-9]{3,4}$" onkeydown="javascript: fMasc( this, mTel );">
+    <input name="celular" type="phone" class="form-control" placeholder="Digite seu número de celular" maxlength="14" id="celular" onkeydown="javascript: fMasc( this, mTel );">
 </div>
 
 <div class="form-group col-sm-3">
@@ -524,7 +459,7 @@
 
 <div class="form-group col-sm-4">
     <label>CEP</label>
-    <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" pattern= "\d{5}-?\d{3}" onkeydown="javascript: fMasc( this, mCEP );" required>
+    <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" maxlength="10" onkeydown="javascript: fMasc( this, mCEP );" required>
 </div>
 
 <div class="form-group col-sm-6">

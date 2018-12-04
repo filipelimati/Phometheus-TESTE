@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -156,7 +159,7 @@
                       <div class="tab-content">
                         <div class="tab-pane fade in active" id="Cadastrar">                                  
                           <div class="row">
-                            <form role="form">                                                                    
+                            <form role="form" action="cadastro_usuario.php" method="post">                                                                    
 
                               <div class="form-group col-sm-7">
                                 <label>Nome</label>
@@ -165,12 +168,12 @@
 
                               <div class="form-group col-sm-5">
                                 <label>Usuário</label>
-                                <input name="nome" type="text" class="form-control" placeholder="Usuário" required="required">
+                                <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="required">
                               </div>
 
                               <div class="form-group col-sm-6">
                                 <label>E-mail</label>
-                                <input name="" type="email" class="form-control" placeholder="E-mail" required="required">
+                                <input name="email" type="email" class="form-control" placeholder="E-mail" required="required">
                               </div>
 
                               <div class="form-group col-sm-6">
@@ -185,23 +188,23 @@
 
                               <div class="form-group col-sm-6" required="required">
                                 <label>Senha</label>
-                                <input name="" type="password" class="form-control" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
+                                <input name="senha" type="password" class="form-control" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
                               </div>
 
                               <div class="form-group col-sm-6" required="required">
                                 <label>Confirmar Senha</label>
-                                <input name="" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
+                                <input name="senhaConfirm" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
                               </div>
+
+                              <div class="col-md-9">
+                                <!--alinhamento dos Botões-->
+                              </div>
+
+                              <div class="col-md-3 col-sm-12 col-xs-12">
+                                <button type="button" class="btn btn-primary btn-block">SALVAR</button>
+                              </div> 
                             </form>
-                          </div>                                   
-
-                          <div class="col-md-9">
-                            <!--alinhamento dos Botões-->
-                          </div>
-
-                          <div class="col-md-3 col-sm-12 col-xs-12">
-                            <button type="button" class="btn btn-primary btn-block">SALVAR</button>
-                          </div>                                
+                          </div>                                                                  
                         </div>
 
                         <div class="tab-pane fade" id="Consultar">
