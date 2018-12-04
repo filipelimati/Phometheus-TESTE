@@ -54,87 +54,100 @@
 
     <div id="wrapper">
 
-     <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.html">Prometheus</a>
-        </div>
-        <!-- /.navbar-header -->
-        <ul class="nav navbar-top-links navbar-right">
+    <nav class="navbar navbar-default navbar-static-top"  style="margin-bottom: 0">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
-            <!-- /.dropdown -->
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                <a href="#" class="navbar-left">
+                    <img src="../img/logo2.png" width="40" height="40" alt=""></img> 
                 </a>
-                <ul class="dropdown-menu dropdown-user">
-                    <li>
-                        <a href="#"><i class="fa fa-user fa-fw"></i> Alterar Senha</a>
-                        </li
+
+                <a class="navbar-brand" href="home.html">                                                           
+                    PROMETHEUS
+                </a>
+            </div>
+            <!-- /.navbar-header -->
+            <ul class="nav navbar-top-links navbar-right">
+
+                <!-- /.dropdown -->
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                        <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    </a>
+                    <ul class="dropdown-menu dropdown-user">
+                        <li>
+                            <a href="#"><i class="fa fa-user fa-fw"></i> Alterar Senha</a>
+                        </li>
                         <li>
                             <a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Sair</a>
                         </li>
                     </ul>
                 </li>
             </ul>
-            <div class="navbar-default sidebar" role="navigation">
+              <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
+                        
                         <li class="sidebar-search">
                             <div class="input-group custom-search-form">
                                 <input type="text" class="form-control" placeholder="Search...">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
+                                <button class="btn btn-default" type="button">
+                                    <i class="fa fa-search"></i>
+                                </button>
                                 </span>
                             </div>
-                            <!-- /input-group -->
+                            
+                        </li>
+
+
+                        <li>
+                            <a href="home.php"> <i class="fa fa-home fa-fw"></i> <b>Home</b></a>                            
                         </li>
                         <li>
-                            <a href="index.html"><i class="fa fa-home fa-fw"></i> Home</a>                            
+                            <a href="consulta.php"><i class="fa fa-user-md fa-fw"></i> <b>Consultas</b></a>
                         </li>
                         <li>
-                            <a href="consulta.html"><i class="fa fa-user-md fa-fw"></i> Consultas</a>
+                            <a href="triagem.php"><i class="fa fa-stethoscope fa-fw"></i> <b>Triagens</b></a>
                         </li>
                         <li>
-                            <a href="prontuario.html"><i class="fa fa-clipboard fa-fw"></i> Prontuários</a>                            
+                            <a href="prontuario.php"><i class="fa fa-clipboard fa-fw"></i> <b>Prontuários</b></a>                            
                         </li>
                         <li>
-                            <a href="#"><i class="fa fa-plus-circle fa-fw"></i> Cadastros<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-plus-circle fa-fw"></i> <b>Cadastros</b><span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>
-                                    <a href="paciente.html">Paciente</a>
+                                    <a href="paciente.php">Paciente</a>
                                 </li>
                                 <li>
-                                    <a href="medicos.html">Médico</a>
+                                    <a href="medicos.php">Médico</a>
                                 </li>
                                 <li>
-                                    <a href="enfermeiro.html">Enfermeiro</a>
+                                    <a href="enfermeiro.php">Enfermeiro</a>
                                 </li>
                                 <li>
-                                    <a href="tecnico.html">Técnico de Enfermagem</a>
+                                    <a href="tecnico.php">Técnico de Enfermagem</a>
                                 </li>                                
                                 <li>
-                                    <a href="maqueiro.html">Maqueiro</a>
+                                    <a href="maqueiro.php">Maqueiro</a>
                                 </li>
                                 <li>
-                                    <a href="medicamento.html">Medicamento</a>                            
+                                    <a href="medicamento.php">Medicamento</a>                            
                                 </li>
                                 <li>
-                                    <a href="usuario.html">Usuário</a>                            
+                                    <a href="usuario.php">Usuário</a>                            
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>                        
                         
                         <li>
-                            <a href="#"><i class="fa fa-book fa-fw"></i> Sobre</a>
+                            <a href="#"><i class="fa fa-book fa-fw"></i> <b>Sobre</b></a>
 
                         </li>
 
