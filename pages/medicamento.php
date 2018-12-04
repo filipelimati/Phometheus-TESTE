@@ -30,7 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
       <![endif]-->
 
-    </head>
+</head>
 
     <body>
       <div id="wrapper">
@@ -137,7 +137,7 @@
                 <!-- /.sidebar-collapse -->
             </div>
             <!-- /.navbar-static-side -->
-        </nav>
+      </nav>
 
         <!-- Page Content -->
         <div id="page-wrapper">
@@ -170,29 +170,9 @@
                         <div class="row">
                           <form role="form">
 
-                            <div class="form-group col-sm-2">
-                              <label>Código</label>
-                              <input name="codigo" type="number" class="form-control" placeholder="Código" required autofocus>
-                            </div>
-
-                            <div class="form-group col-sm-3">
-                              <label>Data de Cadastro</label>
-                              <input name="DataCadastro" type="date" class="form-control" placeholder="Data de cadastro" required>
-                            </div>
-
-                            <div class="form-group col-sm-7">
+                            <div class="form-group col-sm-6">
                               <label>Nome</label>
                               <input name="nome" type="text" class="form-control" placeholder="Nome do Medicamento" pattern="[a-zA-Z\s]+$" required>
-                            </div>
-
-                            <div class="form-group col-sm-12">
-                              <label>Descrição</label>
-                              <textarea class="form-control" rows="3"></textarea>
-                            </div>
-
-                            <div class="form-group col-sm-6">
-                              <label>Princípio Ativo</label>
-                              <input name="principioAtivo" type="text" class="form-control" placeholder="Princípio atívo da medicação" required>
                             </div>
 
                             <div class="form-group col-sm-6">
@@ -200,7 +180,24 @@
                               <input name="laboratorio" type="text" class="form-control" placeholder="Laboratório" required>
                             </div>
 
+                            <div class="form-group col-sm-12">
+                              <label>Descrição</label>
+                              <textarea class="form-control" rows="3"></textarea>
+                            </div>                            
+
+                            <div class="form-group col-sm-3">
+                              <label>Data de Cadastro</label>
+                              <input name="DataCadastro" type="date" class="form-control" placeholder="Data de cadastro" required>
+                            </div>
+
                             <div class="form-group col-sm-6">
+                              <label>Princípio Ativo</label>
+                              <input name="principioAtivo" type="text" class="form-control" placeholder="Princípio atívo da medicação" required>
+                            </div>
+
+                            
+
+                            <div class="form-group col-sm-3">
                               <label>Quantidade</label><br>
                               <input name="qtd" type="number" class="form-control" placeholder="Quantidade" required>
                             </div>
@@ -223,33 +220,35 @@
                                 <option>Não</option>
                               </select>
                             </div>
+
+                            <div class="col-md-7">
+                            <!--alinhamento dos Botões-->
+                            </div>                                    
+
+                            <div class="col-md-2 col-sm-12 col-xs-6">
+                              <button type="reset" class="btn btn-warning btn-block">LIMPAR</button>
+                            </div>
+
+                            <div class="col-md-3 col-sm-12 col-xs-6">
+                              <button type="submit" class="btn btn-primary btn-block">CADASTRAR</button>
+                            </div>
                           </form>
                         </div>                                   
 
-                        <div class="col-md-7">
-                          <!--alinhamento dos Botões-->
-                        </div>                                    
-
-                        <div class="col-md-2 col-sm-12 col-xs-6">
-                          <button type="reset" class="btn btn-warning btn-block">LIMPAR</button>
-                        </div>
-
-                        <div class="col-md-3 col-sm-12 col-xs-6">
-                          <button type="button" class="btn btn-primary btn-block">CADASTRAR</button>
-                        </div>                                
+                                                        
                       </div>
 
                       <div class="tab-pane fade" id="Consultar">
                         
                         <div class="row">
-
+                          <!--FORMULÁRIO DE BUSCA-->
                           <form role="form">
                             <div class="form-group col-sm-12">
                               <label>Buscar por:</label>                                        
                             </div>
-                          </form>
+                          
 
-                          <form role="form">                                    
+                          
                            
                             <div class="form-group col-sm-2">                                                                                 
                               <select class="form-control" required>
@@ -267,112 +266,112 @@
                               <button class="btn btn-primary btn-block" type="button"><i class="fa fa-search"></i> Buscar</button>
                             </div>
 
-                          </form>
-                          <br>                                    
-                          <!--tabelas-->
-                          <div class="table-responsive col-xs-12 col-sm-12 col-md-12">
-                            <label>Selecione o medicamento para editar:</label>
-                            <table class="table table-bordered table-striped">
-                              <thead>
-                                <tr>
-                                  <th>
-                                    Código
-                                  </th>
-                                  <th>
-                                    <small>Nome</small>
-                                  </th>
-                                  <th>
-                                    <small>Laboratório</small>
-                                  </th>
-                                  <th>
-                                    <small>Tarja</small>
-                                  </th>
-                                  <th>
-                                    <small>Descrição</small>
-                                  </th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr>
-                                  <th class="text-muted"></th>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-muted"></th>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-muted"></th>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-muted"></th>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-muted"></th>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                </tr>
-                                <tr>
-                                  <th class="text-muted"></th>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                  <td class="text-muted"></td>
-                                </tr>                                              
-                              </tbody>
-                            </table>
-                          </div> 
-
-                          <form role="form">
-                            <div class="form-group col-sm-2">                                      
-                              <label>Código</label>
-                              <input name="codigo" type="number" class="form-control" placeholder="Código">
+                            <br>                                    
+                            <!--tabelas-->
+                            <div class="table-responsive col-xs-12 col-sm-12 col-md-12">
+                              <label>SELECIONE O MEDICAMENTO PARA EDITAR:</label>
+                              <table class="table table-bordered table-striped">
+                                <thead>
+                                  <tr>
+                                    <th>
+                                      Código
+                                    </th>
+                                    <th>
+                                      <small>Nome</small>
+                                    </th>
+                                    <th>
+                                      <small>Laboratório</small>
+                                    </th>
+                                    <th>
+                                      <small>Tarja</small>
+                                    </th>
+                                    <th>
+                                      <small>Descrição</small>
+                                    </th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr>
+                                    <th class="text-muted"></th>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-muted"></th>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-muted"></th>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-muted"></th>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-muted"></th>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                  </tr>
+                                  <tr>
+                                    <th class="text-muted"></th>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                    <td class="text-muted"></td>
+                                  </tr>                                              
+                                </tbody>
+                              </table>
                             </div>
 
-                            <div class="form-group col-sm-2">
-                              <label>Data de Cadastro</label>
-                              <input name="DataCadastro" type="date" class="form-control" placeholder="Data">
-                            </div>
-
-                            <div class="form-group col-sm-8">
+                            <div class="form-group col-sm-6">
                               <label>Nome</label>
-                              <input name="nome" type="text" class="form-control" placeholder="Nome do Medicamento">
+                              <input name="nome" type="text" class="form-control" placeholder="Nome do Medicamento" pattern="[a-zA-Z\s]+$" required>
+                            </div>
+
+                            <div class="form-group col-sm-6">
+                              <label>Laboratório</label>
+                              <input name="laboratorio" type="text" class="form-control" placeholder="Laboratório" required>
                             </div>
 
                             <div class="form-group col-sm-12">
                               <label>Descrição</label>
                               <textarea class="form-control" rows="3"></textarea>
+                            </div>                            
+
+                            <div class="form-group col-sm-3">
+                              <label>Data de Cadastro</label>
+                              <input name="DataCadastro" type="date" class="form-control" placeholder="Data de cadastro" required>
                             </div>
 
                             <div class="form-group col-sm-6">
                               <label>Princípio Ativo</label>
-                              <input name="principioAtivo" type="text" class="form-control" placeholder="Princípio atívo da medicação">
+                              <input name="principioAtivo" type="text" class="form-control" placeholder="Princípio atívo da medicação" required>
                             </div>
 
-                            <div class="form-group col-sm-6">
-                              <label>Laboratório</label>
-                              <input name="laboratorio" type="text" class="form-control" placeholder="Laboratório">
+                            
+
+                            <div class="form-group col-sm-3">
+                              <label>Quantidade</label><br>
+                              <input name="qtd" type="number" class="form-control" placeholder="Quantidade" required>
                             </div>
 
                             <div class="form-group col-sm-6">
                               <label>Tarja</label>
-                              <select name="tarja" class="form-control mr-sm-2">
+                              <select name="tarja" class="form-control mr-sm-2" required>
                                 <option>Vermelha (Com retenção da Receita)</option>
                                 <option>Vermelha (Sem retenção da Receita)</option>
                                 <option>Preta</option>
@@ -383,26 +382,24 @@
 
                             <div class="form-group col-sm-6">
                               <label>Uso Contínuo</label>
-                              <select name="uso" class="form-control mr-sm-6">
+                              <select name="uso" class="form-control mr-sm-6" required>
                                 <option>Sim</option>
                                 <option>Não</option>
                               </select>
                             </div>
-                          </form>
 
-                          <br>
-
-                          <div class="col-md-6 col-sm-6">
+                            <div class="col-md-7">
                             <!--alinhamento dos Botões-->
-                          </div>
+                            </div>                                    
 
-                          <div class="col-md-3 col-sm-3 col-xs-6">
-                            <button type="button" class="btn btn-danger btn-block">EXCLUIR</button>
-                          </div>
+                            <div class="col-md-2 col-sm-12 col-xs-6">
+                              <button type="reset" class="btn btn-warning btn-block">LIMPAR</button>
+                            </div>
 
-                          <div class="col-md-3 col-sm-3 col-xs-6">
-                            <button type="button" class="btn btn-success btn-block">SALVAR</button>
-                          </div>
+                            <div class="col-md-3 col-sm-12 col-xs-6">
+                              <button type="submit" class="btn btn-primary btn-block">CADASTRAR</button>
+                            </div>
+                          </form>
                         </div>
                       </div>
 

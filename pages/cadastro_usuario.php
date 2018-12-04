@@ -8,7 +8,7 @@ $usuario		= $_POST ["usuario"];
 $email			= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
 $perfil			= $_POST ["perfil"];	//atribuição do campo "ddd" vindo do formulário para variavel
 $senha			= $_POST ["senha"];	//atribuição do campo "telefone" vindo do formulário para variavel
-$senhaConfirm 	= $_POST ["senhaConfirm"];	//atribuição do campo "endereco" vindo do formulário para variavel
+
 
 /*
 $login	= $_POST ["login"];	//atribuição do campo "login" vindo do formulário para variavel
@@ -28,9 +28,8 @@ if (!$banco)
 */
 //echo " '$fixo'</p>";
 
-$query = "INSERT INTO usuario (NOME,USUARIO,EMAIL,PERFIL,SENHA,senhaCONFIRM)
-VALUES ('$nome','$usuario','$email','$perfil','$senha','$senhaConfirm')";
-
+$query = "INSERT INTO usuario (NOME,USUARIO,EMAIL,PERFIL,SENHA)
+VALUES ('$nome','$usuario','$email','$perfil','$senha')";
 
 
 mysqli_query($conexao,$query); //Realiza a consulta
