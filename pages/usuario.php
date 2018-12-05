@@ -1,9 +1,19 @@
-<?php
-session_start();
-?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
+<?php
+    session_start();
 
+    if($_SESSION['numLogin'] == 0 or null){
+?>
+        <script>
+            alert('Primeiro você precisa logar no sistema');
+            location.href="sair.php";
+        </script>
+<?php
+    }
+                      
+?>
 <head>
 
   <meta charset="utf-8">
@@ -54,7 +64,7 @@ session_start();
 </head>
 
     <body>
-
+      
       <div id="wrapper">
 
         <nav class="navbar navbar-default navbar-static-top"  style="margin-bottom: 0">
