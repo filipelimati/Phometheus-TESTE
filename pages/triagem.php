@@ -200,6 +200,16 @@
                               	<input name="data" type="data" class="form-control" required="required">
                               </div>
 
+			                    <div class="form-group col-sm-6">
+			                        <label>Criticidade</label>
+			                        <select name="nivel" id="criticidade" class="form-control mr-sm-2" required>
+			                            <option>Selecione o Nível</option>
+			                            <option>Normal</option>
+			                            <option>Atenção</option>
+			                            <option>Crítico</option>
+			                        </select>
+			                    </div>                              
+
                               <div class="form-group col-sm-12">
                                 <label>Nome</label>
                                 <input name="nome" type="text" class="form-control" placeholder="Nome Completo" required autofocus>
