@@ -184,39 +184,59 @@ session_start();
                           <div class="row">
                             <form role="form" action="cadastro_usuario.php" method="post">                                                                    
 
-                              <div class="form-group col-sm-7">
+                              <div class="form-group col-sm-3">
+                              	<label align="right">Data</label>
+                              	<input name="data" type="data" class="form-control" required="required">
+                              </div>
+
+                              <div class="form-group col-sm-12">
                                 <label>Nome</label>
                                 <input name="nome" type="text" class="form-control" placeholder="Nome Completo" required autofocus>
                               </div>
 
-                              <div class="form-group col-sm-5">
-                                <label>Usuário</label>
-                                <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="required">
+                              <div class="form-group col-sm-6">
+                                <label>CPF</label>
+                                <input name="cpf" type="text" class="form-control" placeholder="CPF" required="required">
                               </div>
 
                               <div class="form-group col-sm-6">
-                                <label>E-mail</label>
-                                <input name="email" type="email" class="form-control" placeholder="E-mail" required="required">
+                                <label>Idade</label>
+                                <input name="idade" type="integer" class="form-control" placeholder="Idade" required="required">
                               </div>
 
                               <div class="form-group col-sm-6">
-                                <label>Perfil</label>
-                                <select name="perfil" class="form-control mr-sm-2" required="required">
-                                  <option>Médico</option>
-                                  <option>Enfermeiro</option>
-                                  <option>Téc. Enfermagem</option>
-                                  <option>Administrador</option>                                        
-                                </select>
-                              </div>                                    
-
-                              <div class="form-group col-sm-6" required="required">
-                                <label>Senha</label>
-                                <input name="senha" id="senha" type="password" class="form-control" onchange="compararSenha;" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
+                              	<label>Doenças Infecciosas</label>
+                              	<input name="doencas" type="text" class="form-control" placeholder="Doeças Contagiosas" required="required">
                               </div>
 
-                              <div class="form-group col-sm-6" required="required">
-                                <label>Confirmar Senha</label>
-                                <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control"  onkeyup="compararSenha;" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
+                              <div class="form-group col-sm-6">
+                              	<label>Alergias</label>
+                              	<input name="alergias" type="text" class="form-control" placeholder="Alergias" required="required">
+                              </div>
+
+                              <div class="form-group col-sm-6">
+                              	<label>Cirurgias</label>
+                              	<input name="cirurgias" type="text" class="form-control" placeholder="Cirurgias" required="required">
+                              </div>
+
+                              <div class="form-group col-sm-6">
+                              	<label>Transfusão Sanguínea</label>
+                              	<input name="transfusao" type="text" class="form-control" placeholder="Transfusão de Sangue" required="required">
+                              </div>
+
+                              <div class="form-group col-sm-6">
+                              	<label>Medicamentos de Uso Contínuo</label>
+                              	<input name="medcontinuo" type="text" class="form-control" placeholder="Medicamentos de Uso Contínuo" required="required">
+                              </div>
+
+                              <div class="form-group col-sm-6">
+                              	<label>Outros</label>
+                              	<input name="outros" type="text" class="form-control" placeholder="Outros" required="required">
+                              </div>
+
+                              <div class="form-group col-sm-12">
+                              	<label>Observação</label><br>
+                              	<textarea name="observacao" type="text" class="form-control"></textarea></br>
                               </div>
 
                               <div class="col-md-9">
