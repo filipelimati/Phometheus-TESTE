@@ -3,19 +3,14 @@ session_start();
 include('conexao.php');
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
 
-$coren = $_POST ["coren"];
-$nome	= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel	
-$email	= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
-$fixo	= $_POST ["fixo"];	//atribuição do campo "ddd" vindo do formulário para variavel
-$dataNasc	= $_POST ["dataNasc"];	//atribuição do campo "telefone" vindo do formulário para variavel
-$sexo = $_POST ["sexo"];	//atribuição do campo "endereco" vindo do formulário para variavel
-$cep	= $_POST ["cep"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$logradouro	= $_POST ["logradouro"];	//atribuição do campo "estado" vindo do formulário para variavel
-$endNumero = $_POST ["endNumero"];	//atribuição do campo "bairro" vindo do formulário para variavel
-$complemento	= $_POST ["complemento"];	//atribuição do campo "pais" vindo do formulário para variavel
-$bairro = $_POST ["bairro"];	//atribuição do campo "endereco" vindo do formulário para variavel
-$cidade	= $_POST ["cidade"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$estado	= $_POST ["estado"];	//atribuição do campo "estado" vindo do formulário para variavel
+$nome 			= $_POST ["nome"];
+$laboratorio	= $_POST ["laboratorio"];	//atribuição do campo "nome" vindo do formulário para variavel	
+$descricao		= $_POST ["descricao"];	//atribuição do campo "email" vindo do formulário para variavel
+$DataCadastro	= $_POST ["DataCadastro"];	//atribuição do campo "ddd" vindo do formulário para variavel
+$principioAtivo	= $_POST ["principioAtivo"];	//atribuição do campo "telefone" vindo do formulário para variavel
+$qtd 			= $_POST ["qtd"];	//atribuição do campo "endereco" vindo do formulário para variavel
+$tarja			= $_POST ["tarja"];	//atribuição do campo "cidade" vindo do formulário para variavel
+$uso			= $_POST ["uso"];	//atribuição do campo "estado" vindo do formulário para variavel
 
 /*
 $login	= $_POST ["login"];	//atribuição do campo "login" vindo do formulário para variavel
@@ -35,8 +30,8 @@ if (!$banco)
 */
 //echo " '$fixo'</p>";
 
-$query = "INSERT INTO enfermeiro (coren,NOME,EMAIL,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
-VALUES ('$coren','$nome','$email','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
+$query = "INSERT INTO medicamento (NOME,LABORATORIO,DESCRICAO,dataCADASTRO,principioATIVO,QTD,TARJA,USO)
+VALUES ('$nome','$laboratorio','$descricao','$DataCadastro','$principioAtivo','$qtd','$tarja','$uso')";
 
 
 
@@ -47,7 +42,7 @@ if(mysqli_affected_rows($conexao) == 1){ //verifica se foi afetada alguma linha,
 ?>
 	<script>
 	alert('O cadastro foi efetuado com sucesso!');
-	location.href="enfermeiro.php";
+	location.href="medicamento.php";
 	</script>
 <?php
 
@@ -57,7 +52,7 @@ if(mysqli_affected_rows($conexao) == 1){ //verifica se foi afetada alguma linha,
 ?>
 	<script>
 	alert('Erro, não possível inserir no banco de dados');
-	location.href="enfermeiro.php";
+	location.href="medicamento.php";
 	</script>
   <?php  
 }

@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -168,7 +171,7 @@
                     <div class="tab-content">
                       <div class="tab-pane fade in active" id="Cadastrar">                                  
                         <div class="row">
-                          <form role="form">
+                          <form role="form" action="cadastro_medicamento.php" method="post">
 
                             <div class="form-group col-sm-6">
                               <label>Nome</label>
@@ -182,7 +185,7 @@
 
                             <div class="form-group col-sm-12">
                               <label>Descrição</label>
-                              <textarea class="form-control" rows="3"></textarea>
+                              <textarea name="descricao" class="form-control" rows="3"></textarea>
                             </div>                            
 
                             <div class="form-group col-sm-3">
