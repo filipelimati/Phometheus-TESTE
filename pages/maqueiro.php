@@ -23,7 +23,8 @@
   <meta name="author" content="">
 
   <title>Prometheus</title>
-
+  
+  <!--MASCARAS-->
   <script type="text/javascript">
     function fMasc(objeto,mascara) {
       obj=objeto
