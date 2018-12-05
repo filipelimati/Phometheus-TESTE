@@ -38,26 +38,28 @@
 
   <script type="text/javascript">
     
-    function compararSenha(senha, senhaConfirm){
+    function compararSenha( ){
 
-      var senha = document.getElementById('senha').value;
-      var senhaConfirm = document.getElementById('senhaConfirm').value;    
+      senha = document.getElementById('senha').value;
+      senhaConfirm = document.getElementById('senhaConfirm').value;    
 
-      if (senha != "" && senhaConfirm != "" && senha === senhaConfirm)
+      if (senha != senhaConfirm)
       {
+        document.getElementById('divSenha').className = 'form-group col-sm-6 has-error';
+        document.getElementById('divsenhaConfirm').className = 'form-group col-sm-6 has-error';
+        alert("Senhas diferentes!");
+        return false;     
+      }
+      else{
+        document.formUser.submit();
+
+      }      
+        /*
         document.getElementById('senha').className = 'form-control is-valid';
         document.getElementById('senhaConfirm').className = 'form-control is-valid';
         confirm_password.setCustomValidity('');
-      }
-      else
-      {
-        document.getElementById('senha').className = 'form-control is-invalid';
-        document.getElementById('senhaConfirm').className = 'form-control is-invalid';
-        confirm_password.setCustomValidity("Senhas diferentes!");
-      }
-    }
-    senha.onchange = validatePassword;
-    senhaConfirm.onkeyup = validatePassword;
+        */
+    } 
 
   </script>
 
@@ -197,7 +199,7 @@
                       <div class="tab-content">
                         <div class="tab-pane fade in active" id="Cadastrar">                                  
                           <div class="row">
-                            <form role="form" action="cadastro_usuario.php" method="post">                                                                    
+                            <form role="form" id="formUser" action="cadastro_usuario.php" method="post" onsubmit="return compararSenha();">                                                                    
 
                               <div class="form-group col-sm-7">
                                 <label>Nome</label>
@@ -224,14 +226,14 @@
                                 </select>
                               </div>                                    
 
-                              <div class="form-group col-sm-6" required="required">
+                              <div class="form-group col-sm-6" id="divSenha" required="required">
                                 <label>Senha</label>
-                                <input name="senha" id="senha" type="password" class="form-control" onchange="compararSenha;" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
+                                <input name="senha" id="senha" type="password" class="form-control is-invalid" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
                               </div>
 
-                              <div class="form-group col-sm-6" required="required">
+                              <div class="form-group col-sm-6" id="divsenhaConfirm" required="required">
                                 <label>Confirmar Senha</label>
-                                <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control"  onkeyup="compararSenha;" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
+                                <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
                               </div>
 
                               <div class="col-md-9">
