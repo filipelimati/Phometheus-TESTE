@@ -18,6 +18,7 @@ $complemento		= $_POST ["complemento"];	//atribuição do campo "pais" vindo do 
 $bairro 			= $_POST ["bairro"];	//atribuição do campo "endereco" vindo do formulário para variavel
 $cidade				= $_POST ["cidade"];	//atribuição do campo "cidade" vindo do formulário para variavel
 $estado				= $_POST ["estado"];	//atribuição do campo "estado" vindo do formulário para variavel
+$data = date("Y-m-d H:i:s", time());
 
 /*
 $login	= $_POST ["login"];	//atribuição do campo "login" vindo do formulário para variavel
@@ -36,18 +37,14 @@ if (!$banco)
 	die ("Erro de conexão com banco de dados, o seguinte erro ocorreu -> ".mysql_error());
 */
 //echo " '$fixo'</p>";
-
-$query = "INSERT INTO enfermeiro (coren,NOME,EMAIL,CPF,FIXO,CELULAR,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
-VALUES ('$coren','$nome','$email','$cpf','$fixo','$celular','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
-
-
+$query = "INSERT INTO enfermeiro (coren,NOME,EMAIL,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO,DATACADASTRO)
+VALUES ('$coren','$nome','$email','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado','$data')";
 
 mysqli_query($conexao,$query); //Realiza a consulta
  
 if(mysqli_affected_rows($conexao) == 1){ //verifica se foi afetada alguma linha, nesse caso inserida alguma linha
 	
-?>
-	<script>
+?>	<script>
 	alert('O cadastro foi efetuado com sucesso!');
 	location.href="enfermeiro.php";
 	</script>
@@ -59,7 +56,7 @@ if(mysqli_affected_rows($conexao) == 1){ //verifica se foi afetada alguma linha,
 ?>
 	<script>
 	alert('Erro, não possível inserir no banco de dados');
-	location.href="enfermeiro.php";
+	//location.href="enfermeiro.php";
 	</script>
   <?php  
 }

@@ -14,52 +14,19 @@ session_start();
 
   <title>Prometheus</title>
 
-  <script type="text/javascript">
-      function fMasc(objeto,mascara) {
-        obj=objeto
-        masc=mascara
-        setTimeout("fMascEx()",1)
-      }
-      function fMascEx() {
-        obj.value=masc(obj.value)
-      }
-      function mTel(tel) {
-        tel=tel.replace(/\D/g,"")
-        tel=tel.replace(/^(\d)/,"($1")
-        tel=tel.replace(/(.{3})(\d)/,"$1)$2")
-        if(tel.length == 9) {
-          tel=tel.replace(/(.{1})$/,"-$1")
-        } else if (tel.length == 10) {
-          tel=tel.replace(/(.{2})$/,"-$1")
-        } else if (tel.length == 11) {
-          tel=tel.replace(/(.{3})$/,"-$1")
-        } else if (tel.length == 12) {
-          tel=tel.replace(/(.{4})$/,"-$1")
-        } else if (tel.length > 12) {
-          tel=tel.replace(/(.{4})$/,"-$1")
-        }
-        return tel;
-      }
-      function mCPF(cpf){
-        cpf=cpf.replace(/\D/g,"")
-        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
-        cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
-        cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
-        return cpf
-      }
-      function mCEP(cep){
-        cep=cep.replace(/\D/g,"")
-        cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
-        cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
-        return cep
-      }
-      function mNum(num){
-        num=num.replace(/\D/g,"")
-        return num
-      }
-  </script>
+  <!-- jQuery -->
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  
+
+  
+ <!--DataTable JS-->
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.js"></script>
+
+  <!--DataTable STYLE-->
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.18/datatables.min.css"/>
 
   <!-- Bootstrap Core CSS -->
+
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- MetisMenu CSS -->
@@ -71,12 +38,82 @@ session_start();
   <!-- Custom Fonts -->
   <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-      <![endif]-->
+  
+  <script type="text/javascript">
+    function fMasc(objeto,mascara) {
+      obj=objeto
+      masc=mascara
+      setTimeout("fMascEx()",1)
+    }
+    function fMascEx() {
+      obj.value=masc(obj.value)
+    }
+    function mTel(tel) {
+      tel=tel.replace(/\D/g,"")
+      tel=tel.replace(/^(\d)/,"($1")
+      tel=tel.replace(/(.{3})(\d)/,"$1)$2")
+      if(tel.length == 9) {
+        tel=tel.replace(/(.{1})$/,"-$1")
+      } else if (tel.length == 10) {
+        tel=tel.replace(/(.{2})$/,"-$1")
+      } else if (tel.length == 11) {
+        tel=tel.replace(/(.{3})$/,"-$1")
+      } else if (tel.length == 12) {
+        tel=tel.replace(/(.{4})$/,"-$1")
+      } else if (tel.length > 12) {
+        tel=tel.replace(/(.{4})$/,"-$1")
+      }
+      return tel;
+    }
+    function mCPF(cpf){
+      cpf=cpf.replace(/\D/g,"")
+      cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+      cpf=cpf.replace(/(\d{3})(\d)/,"$1.$2")
+      cpf=cpf.replace(/(\d{3})(\d{1,2})$/,"$1-$2")
+      return cpf
+    }
+    function mCEP(cep){
+      cep=cep.replace(/\D/g,"")
+      cep=cep.replace(/^(\d{2})(\d)/,"$1.$2")
+      cep=cep.replace(/\.(\d{3})(\d)/,".$1-$2")
+      return cep
+    }
+    function mNum(num){
+      num=num.replace(/\D/g,"")
+      return num
+    }
+
+    $(document).ready(function() {
+      $('#tenf').DataTable({
+                "language": {
+    "sEmptyTable": "Nenhum registro encontrado",
+    "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+    "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+    "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+    "sInfoPostFix": "",
+    "sInfoThousands": ".",
+    "sLengthMenu": "_MENU_  resultados por página",
+    "sLoadingRecords": "Carregando...",
+    "sProcessing": "Processando...",
+    "sZeroRecords": "Nenhum registro encontrado",
+    "sSearch": "Pesquisar",
+    "oPaginate": {
+        "sNext": "Próximo",
+        "sPrevious": "Anterior",
+        "sFirst": "Primeiro",
+        "sLast": "Último"
+    },
+    "oAria": {
+        "sSortAscending": ": Ordenar colunas de forma ascendente",
+        "sSortDescending": ": Ordenar colunas de forma descendente"
+    }
+  }
+      });
+    } );
+
+  </script>    
+
+
 
 </head>
 
@@ -352,67 +389,45 @@ session_start();
                     </div>
                     <div class="tab-pane fade" id="Consultar">
 
-                      <div class="row">
-
-                        <form role="form">
-                          <div class="form-group col-sm-12">
-                            <label>Buscar por:</label>                                        
-                          </div>
-                        </form>
-
-                        <form role="form">                                    
-
-                          <div class="form-group col-sm-2">                                                                                 
-                            <select class="form-control">
-                              <option>Nome</option>
-                              <option>COREN</option>                                         
-                            </select>                                        
-                          </div>
-
-                          <div class="form-group col-sm-8">                                                                            
-                            <input name="" type="search" class="form-control" placeholder="Descreva o que deseja buscar">
-                          </div>
-
-                          <div class="form-group col-sm-2">                                       
-                            <button class="btn btn-primary btn-block" type="button"><i class="fa fa-search"></i> Buscar</button>
-                          </div>
-
-                        </form>
-                        <br>                                    
+                      <div class="row">                              
                         <!--tabelas-->
                         <div class="table-responsive col-xs-12 col-sm-12 col-md-12">
                           <label>Selecione o usuário para editar:</label>
-                          <table class="table table-bordered table-striped">
+                          <table class="table table-striped table-bordered table-hover " id="tenf"> 
                             <thead>
                               <tr>
                                 <th>
-                                  <small>Nome</small>
+                                  <b>COREN</b>
                                 </th>
                                 <th>
-                                  <small>COREN</small>
+                                  <b>NOME</b>
                                 </th>
                                 <th>
-                                  <small>CPF</small>
-                                </th>                                              
+                                  <b>EMAIL</b>
+                                </th>
+                                <th>
+                                  <b>DATA CADASTRO</b>
+                                </th>                                                  
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <th class="text-muted"></th>
-                                <td class="text-muted"></td>
-                                <td class="text-muted"></td>
-                              </tr>
-                              <tr>
-                                <th class="text-muted"></th>
-                                <td class="text-muted"></td>
-                                <td class="text-muted"></td>
-                              </tr>
-                              <tr>
-                                <th class="text-muted"></th>
-                                <td class="text-muted"></td>
-                                <td class="text-muted"></td>
-                              </tr>
+                            <?php  
+                              include_once("conexao.php");
 
+                              $sql = "select nome,coren,email,datacadastro from enfermeiro";
+                              $consulta = mysqli_query($conexao,$sql); 
+                              if ($resultado = $consulta){
+                                while ($obj = $resultado->fetch_object()){ 
+                            ?>
+                                <tr>
+                                  <th ><?php printf($obj->coren) ?></th>
+                                  <td ><?php printf($obj->nome) ?></td>
+                                  <td ><?php printf($obj->email) ?></td>
+                                  <td ><?php printf($obj->datacadastro) ?></td>
+                                </tr>
+                              <?php }
+                              $resultado->close();
+                              } ?>
                             </tbody>
                           </table>
                         </div> 
@@ -552,21 +567,21 @@ session_start();
                     <!-- /.container-fluid -->
                   </div>
                   <!-- /#page-wrapper -->
+
                 </div>
               </div>
-              <!-- /#wrapper -->
+                  <!-- /#wrapper -->
 
-              <!-- jQuery -->
-              <script src="../vendor/jquery/jquery.min.js"></script>
 
-              <!-- Bootstrap Core JavaScript -->
-              <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-              <!-- Metis Menu Plugin JavaScript -->
-              <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+  <!-- Bootstrap Core JavaScript -->
+  <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
-              <!-- Custom Theme JavaScript -->
-              <script src="../dist/js/sb-admin-2.js"></script>
+  <!-- Metis Menu Plugin JavaScript -->
+  <script src="../vendor/metisMenu/metisMenu.min.js"></script>
+
+  <!-- Custom Theme JavaScript -->
+  <script src="../dist/js/sb-admin-2.js"></script>
 
             </body>
 
