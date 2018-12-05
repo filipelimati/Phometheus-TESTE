@@ -10,7 +10,7 @@ $dataNasc			= $_POST ["dataNasc"];	//atribuição do campo "ddd" vindo do formul
 $atendimento		= $_POST ["atendimento"];	//atribuição do campo "telefone" vindo do formulário para variavel
 $leito 				= $_POST ["leito"];	//atribuição do campo "endereco" vindo do formulário para variavel
 $dataEntrada		= $_POST ["dataEntrada"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$alergico			= $_POST ["alergico"];	//atribuição do campo "estado" vindo do formulário para variavel
+$alergicoMed		= $_POST ["alergicoMed"];	//atribuição do campo "estado" vindo do formulário para variavel
 $descAlergia 		= $_POST ["descAlergia"];	//atribuição do campo "bairro" vindo do formulário para variavel
 $alergiaMED			= $_POST ["alergiaMED"];	//atribuição do campo "pais" vindo do formulário para variavel
 $descMedicamento 	= $_POST ["descMedicamento"];	//atribuição do campo "endereco" vindo do formulário para variavel
@@ -37,7 +37,7 @@ if (!$banco)
 //echo " '$fixo'</p>";
 
 $query = "INSERT INTO prontuario (CPF,NOME,EMAIL,SEXO,DATANASC,ATENDIMENTO,LEITO,dataENTRADA,ALERGICO,descALERGIA,ALERGIAMED,descMEDICAMENTO,DIAGNOSTICO,EXAMES,TRATAMENTO)
-VALUES ('$cpf','$nome','$email','$sexo','$dataNasc','$atendimento','$leito','$dataEntrada','$alergico','$descAlergia','$alergiaMED','$descMedicamento','$tratamento')";
+VALUES ('$cpf','$nome','$sexo','$dataNasc','$atendimento','$leito','$dataEntrada','$alergicoMed','$descAlergia','$alergiaMED','$descMedicamento','$exames','$tratamento')";
 
 
 
