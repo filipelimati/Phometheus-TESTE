@@ -9,6 +9,7 @@ $usuario		= $_POST ["usuario"];
 $senha			= $_POST ["senha"];
 $senhaConfirm	= $_POST ["senhaConfirm"];
 $email			= $_POST ["email"];
+$especialidade  = $_POST ["especialidade"];
 $cpf			= $_POST ["cpf"];
 $fixo			= $_POST ["fixo"];
 $celular		= $_POST ["celular"];
@@ -40,8 +41,8 @@ if (!$banco)
 */
 //echo " '$fixo'</p>";
 
-$query = "INSERT INTO medico (crm,NOME,'USUARIO','SENHA','SENHACONFIRM',EMAIL,CPF,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
-VALUES ('$crm','$nome','$usuario','$senha','$senhaConfirm','$email','$cpf','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
+$query = "INSERT INTO medico (crm,NOME,EMAIL,CPF,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
+VALUES ('$crm','$nome','$especialidade','$email','$cpf','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
 
 
 

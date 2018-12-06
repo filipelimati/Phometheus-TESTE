@@ -336,21 +336,6 @@
                                       <input name="coren" type="text" class="form-control" placeholder="Informe o número do COREN" required autofocus>
                                     </div>
 
-                                    <div class="form-group col-sm-5">
-                                      <label>Usuário</label>
-                                      <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="required">
-                                    </div>
-
-                                    <div class="form-group col-sm-6" id="divSenha" required="required">
-                                      <label>Senha</label>
-                                      <input name="senha" id="senha" type="password" class="form-control is-invalid" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                                    </div>
-
-                                    <div class="form-group col-sm-6" id="divsenhaConfirm" required="required">
-                                      <label>Confirmar Senha</label>
-                                      <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                                    </div>                          
-
                                     <div class="form-group col-md-8">
                                       <label>Nome</label>
                                       <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" pattern="[a-zA-Z\s]+$" required>
@@ -386,12 +371,7 @@
                                       <option>Feminino</option>
                                     </select>
                                   </div>
-
-                                  <div class="form-group col-md-9">
-                                    <label>Especialidade</label>
-                                    <input name="especialidade" type="text" class="form-control" placeholder="Digite a especialidade" pattern="[a-zA-Z\s]+$" required>
-                                  </div>
-
+                                  
                                   <div class="form-group col-sm-2">
                                     <label>CEP</label>
                                     <input name="cep" id="cep" type="text" class="form-control" placeholder="Informe o CEP" id="cep" onblur="pesquisacep(this.value);" maxlength="10" onkeydown="javascript: fMasc( this, mCEP );" required>

@@ -306,21 +306,6 @@ if($_SESSION['numLogin'] == 0 or null){
                               <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" required autofocus >
                             </div>
 
-                            <div class="form-group col-sm-5">
-                              <label>Usuário</label>
-                              <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="required">
-                            </div>
-
-                            <div class="form-group col-sm-6" id="divSenha" required="required">
-                              <label>Senha</label>
-                              <input name="senha" id="senha" type="password" class="form-control is-invalid" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                            </div>
-
-                            <div class="form-group col-sm-6" id="divsenhaConfirm" required="required">
-                              <label>Confirmar Senha</label>
-                              <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                            </div>                              
-
                             <div class="form-group col-sm-4">
                               <label>E-mail</label>
                               <input name="email" type="email" class="form-control" placeholder="E-mail para envio de informação médica" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
@@ -537,38 +522,9 @@ if($_SESSION['numLogin'] == 0 or null){
                               <input name="cidade" type="text" placeholder="Informe a cidade" class="form-control" required>
                             </div>
 
-                            <div class="form-group col-sm-6">
-                              <label>UF</label>
-                              <select name="estado" class="form-control mr-sm-2" required>
-                                <option>Selecione o estado</option>
-                                <option value="AC">Acre</option>
-                                <option value="AL">Alagoas</option>
-                                <option value="AP">Amapá</option>
-                                <option value="AM">Amazonas</option>
-                                <option value="BA">Bahia</option>
-                                <option value="CE">Ceará</option>
-                                <option value="DF">Distrito Federal</option>
-                                <option value="ES">Espirito Santo</option>
-                                <option value="GO">Goiás</option>
-                                <option value="MA">Maranhão</option>
-                                <option value="MS">Mato Grosso do Sul</option>
-                                <option value="MT">Mato Grosso</option>
-                                <option value="MG">Minas Gerais</option>
-                                <option value="PA">Pará</option>
-                                <option value="PB">Paraíba</option>
-                                <option value="PR">Paraná</option>
-                                <option value="PE">Pernambuco</option>
-                                <option value="PI">Piauí</option>
-                                <option value="RJ">Rio de Janeiro</option>
-                                <option value="RN">Rio Grande do Norte</option>
-                                <option value="RS">Rio Grande do Sul</option>
-                                <option value="RO">Rondônia</option>
-                                <option value="RR">Roraima</option>
-                                <option value="SC">Santa Catarina</option>
-                                <option value="SP">São Paulo</option>
-                                <option value="SE">Sergipe</option>
-                                <option value="TO">Tocantins</option>
-                              </select>
+                            <div class="form-group-sm col-sm-6">
+                              <label>UF</label> 
+                              <input name="estado" id="uf" type="text" class="form-control" value = "<?php printf($obj->estado) ?>"  required>                                 
                             </div>
 
                             <div class="col-md-6">
