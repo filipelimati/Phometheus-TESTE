@@ -204,9 +204,7 @@
                             <div class="form-group col-sm-6">
                               <label>Princípio Ativo</label>
                               <input name="principioAtivo" type="text" class="form-control" placeholder="Princípio atívo da medicação" required>
-                            </div>
-
-                            
+                            </div>                            
 
                             <div class="form-group col-sm-3">
                               <label>Quantidade</label><br>

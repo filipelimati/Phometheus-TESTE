@@ -2,33 +2,7 @@ body {
   background-color: #f8f8f8;
 }
 
-/*
-TESTE
-*/
-.fade {
-    -webkit-transition: opacity 0.15s linear;
-    transition: opacity 0.15s linear;
-}
 
-.fade:not(.show) {
-    opacity: 0;
-}
-
-.modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    overflow: hidden;
-    outline: 0;
-}
-
-/*
-TESTE
-*/
 
 .medio {
   text-align: left;
