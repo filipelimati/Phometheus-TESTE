@@ -230,21 +230,6 @@ if($_SESSION['numLogin'] == 0 or null){
                               <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" pattern="[a-zA-Z\s]+$" required autofocus >
                             </div>
 
-                            <div class="form-group col-sm-5">
-                              <label>Usuário</label>
-                              <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="required">
-                            </div>
-
-                            <div class="form-group col-sm-6" id="divSenha" required="required">
-                              <label>Senha</label>
-                              <input name="senha" id="senha" type="password" class="form-control is-invalid" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                            </div>
-
-                            <div class="form-group col-sm-6" id="divsenhaConfirm" required="required">
-                              <label>Confirmar Senha</label>
-                              <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                            </div>
-
                             <div class="form-group col-sm-6">
                               <label>E-mail</label>
                               <input name="email" type="text" class="form-control" placeholder="Digite seu e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
