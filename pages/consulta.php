@@ -81,7 +81,7 @@
                     <img src="../img/logo2.png" width="40" height="40" alt=""></img> 
                 </a>
 
-                <a class="navbar-brand" href="home.php">                                                           
+                <a class="navbar-brand" href="home.html">                                                           
                     PROMETHEUS
                 </a>
             </div>
