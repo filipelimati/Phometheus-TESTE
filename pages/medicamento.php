@@ -194,6 +194,11 @@
                             <div class="form-group col-sm-12">
                               <label>Descrição</label>
                               <textarea name="descricao" class="form-control" rows="3"></textarea>
+                            </div>                            
+
+                            <div class="form-group col-sm-3">
+                              <label>Data de Cadastro</label>
+                              <input name="DataCadastro" type="date" class="form-control" placeholder="Data de cadastro" required>
                             </div>
 
                             <div class="form-group col-sm-6">
@@ -201,7 +206,7 @@
                               <input name="principioAtivo" type="text" class="form-control" placeholder="Princípio atívo da medicação" required>
                             </div>                            
 
-                            <div class="form-group col-sm-6">
+                            <div class="form-group col-sm-3">
                               <label>Quantidade</label><br>
                               <input name="qtd" type="number" class="form-control" placeholder="Quantidade" required>
                             </div>
