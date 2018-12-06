@@ -201,7 +201,7 @@
                         
 
                         <div class="col-lg-4 col-md-4">
-                            <a href="prontuarios.php">
+                            <a href="prontuario.php">
                                 <div class="panel panel-yellow">
                                     <div class="panel-heading">
                                         <div class="row">
