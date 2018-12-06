@@ -4,18 +4,18 @@ include('conexao.php');
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
 
 $cpf 				= $_POST ["cpf"];
-$nome				= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel	
-$sexo				= $_POST ["sexo"];	//atribuição do campo "email" vindo do formulário para variavel
-$dataNasc			= $_POST ["dataNasc"];	//atribuição do campo "ddd" vindo do formulário para variavel
-$atendimento		= $_POST ["atendimento"];	//atribuição do campo "telefone" vindo do formulário para variavel
-$leito 				= $_POST ["leito"];	//atribuição do campo "endereco" vindo do formulário para variavel
-$dataEntrada		= $_POST ["dataEntrada"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$alergicoMed		= $_POST ["alergicoMed"];	//atribuição do campo "estado" vindo do formulário para variavel
-$descAlergia 		= $_POST ["descAlergia"];	//atribuição do campo "bairro" vindo do formulário para variavel
-$alergiaMED			= $_POST ["alergiaMED"];	//atribuição do campo "pais" vindo do formulário para variavel
-$descMedicamento 	= $_POST ["descMedicamento"];	//atribuição do campo "endereco" vindo do formulário para variavel
-$diagnostico		= $_POST ["diagnostico"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$exames				= $_POST ["exames"];	//atribuição do campo "estado" vindo do formulário para variavel
+$nome				= $_POST ["nome"];
+$sexo				= $_POST ["sexo"];
+$dataNasc			= $_POST ["dataNasc"];
+$atendimento		= $_POST ["atendimento"];
+$leito 				= $_POST ["leito"];
+$dataEntrada		= $_POST ["dataEntrada"];
+$alergicoMed		= $_POST ["alergicoMed"];
+$descAlergia 		= $_POST ["descAlergia"];
+$alergiaMED			= $_POST ["alergiaMED"];
+$descMedicamento 	= $_POST ["descMedicamento"];
+$diagnostico		= $_POST ["diagnostico"];
+$exames				= $_POST ["exames"];
 $tratamento			= $_POST ["tratamento"];
 
 /*

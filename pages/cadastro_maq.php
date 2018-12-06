@@ -4,7 +4,10 @@ include('conexao.php');
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
 
 $cpf 			= $_POST ["cpf"];
-$nome			= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel	
+$nome			= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel
+$usuario		= $_POST ["usuario"];
+$senha			= $_POST ["senha"];
+$senhaConfirm	= $_POST ["senhaConfirm"];	
 $email			= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
 $fixo			= $_POST ["fixo"];	//atribuição do campo "ddd" vindo do formulário para variavel
 $celular		= $_POST ["celular"];	//atribuição do campo "ddd" vindo do formulário para variavel
@@ -36,8 +39,8 @@ if (!$banco)
 */
 //echo " '$fixo'</p>";
 
-$query = "INSERT INTO maqueiro (CPF,NOME,EMAIL,FIXO,CELULAR,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
-VALUES ('$cpf','$nome','$email','$fixo','$celular','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
+$query = "INSERT INTO maqueiro (CPF,NOME,USUARIO,SENHA,SENHACONFIRM,EMAIL,FIXO,CELULAR,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
+VALUES ('$cpf','$nome','$usuario','$senha','$senhaConfirm','$email','$fixo','$celular','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
 
 
 

@@ -5,12 +5,16 @@ include('conexao.php');
 
 $coren 				= $_POST ["coren"];
 $nome				= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel	
+$usuario			= $_POST ["usuario"];
+$senha				= $_POST ["senha"];
+$senhaConfirm		= $_POST ["senhaConfirm"];
 $email				= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
 $cpf				= $_POST ["cpf"];
 $fixo				= $_POST ["fixo"];	//atribuição do campo "ddd" vindo do formulário para variavel
 $celular			= $_POST ["celular"];
 $dataNasc			= $_POST ["dataNasc"];	//atribuição do campo "telefone" vindo do formulário para variavel
 $sexo 				= $_POST ["sexo"];	//atribuição do campo "endereco" vindo do formulário para variavel
+$especialidade 		= $_POST ["especialidade"];	
 $cep				= $_POST ["cep"];	//atribuição do campo "cidade" vindo do formulário para variavel
 $logradouro			= $_POST ["logradouro"];	//atribuição do campo "estado" vindo do formulário para variavel
 $endNumero 			= $_POST ["endNumero"];	//atribuição do campo "bairro" vindo do formulário para variavel
@@ -37,8 +41,8 @@ if (!$banco)
 	die ("Erro de conexão com banco de dados, o seguinte erro ocorreu -> ".mysql_error());
 */
 //echo " '$fixo'</p>";
-$query = "INSERT INTO enfermeiro (coren,NOME,EMAIL,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO,DATACADASTRO)
-VALUES ('$coren','$nome','$email','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado','$data')";
+$query = "INSERT INTO enfermeiro (coren,NOME,USUARIO,SENHA,SENHACONFIRM,EMAIL,CPF,FIXO,CELULAR,DATANASC,SEXO,ESPECIALIDADE,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
+VALUES ('$coren','$nome','$usuario','$senha','$senhaConfirm','$email','$fixo','$celular','$dataNasc','$sexo','$especialidade','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
 
 mysqli_query($conexao,$query); //Realiza a consulta
  
@@ -56,7 +60,7 @@ if(mysqli_affected_rows($conexao) == 1){ //verifica se foi afetada alguma linha,
 ?>
 	<script>
 	alert('Erro, não possível inserir no banco de dados');
-	//location.href="enfermeiro.php";
+	location.href="enfermeiro.php";
 	</script>
   <?php  
 }

@@ -4,20 +4,23 @@ include('conexao.php');
 // RECEBENDO OS DADOS PREENCHIDOS DO FORMULÁRIO !
 
 $crm		 	= $_POST ["crm"];
-$nome			= $_POST ["nome"];	//atribuição do campo "nome" vindo do formulário para variavel	
-$email			= $_POST ["email"];	//atribuição do campo "email" vindo do formulário para variavel
-$cpf			= $_POST ["cpf"];	//atribuição do campo "CPF" vindo do formulário para variavel
-$fixo			= $_POST ["fixo"];	//atribuição do campo "ddd" vindo do formulário para variavel
-$celular		= $_POST ["celular"];	//atribuição do campo "ddd" vindo do formulário para variavel
-$dataNasc		= $_POST ["dataNasc"];	//atribuição do campo "telefone" vindo do formulário para variavel
-$sexo 			= $_POST ["sexo"];	//atribuição do campo "endereco" vindo do formulário para variavel
-$cep			= $_POST ["cep"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$logradouro		= $_POST ["logradouro"];	//atribuição do campo "estado" vindo do formulário para variavel
-$endNumero 		= $_POST ["endNumero"];	//atribuição do campo "bairro" vindo do formulário para variavel
-$complemento	= $_POST ["complemento"];	//atribuição do campo "pais" vindo do formulário para variavel
-$bairro 		= $_POST ["bairro"];	//atribuição do campo "endereco" vindo do formulário para variavel
-$cidade			= $_POST ["cidade"];	//atribuição do campo "cidade" vindo do formulário para variavel
-$estado			= $_POST ["estado"];	//atribuição do campo "estado" vindo do formulário para variavel
+$nome			= $_POST ["nome"];	
+$usuario		= $_POST ["usuario"];
+$senha			= $_POST ["senha"];
+$senhaConfirm	= $_POST ["senhaConfirm"];
+$email			= $_POST ["email"];
+$cpf			= $_POST ["cpf"];
+$fixo			= $_POST ["fixo"];
+$celular		= $_POST ["celular"];
+$dataNasc		= $_POST ["dataNasc"];
+$sexo 			= $_POST ["sexo"];
+$cep			= $_POST ["cep"];
+$logradouro		= $_POST ["logradouro"];
+$endNumero 		= $_POST ["endNumero"];
+$complemento	= $_POST ["complemento"];
+$bairro 		= $_POST ["bairro"];
+$cidade			= $_POST ["cidade"];
+$estado			= $_POST ["estado"];
 
 /*
 $login	= $_POST ["login"];	//atribuição do campo "login" vindo do formulário para variavel
@@ -37,8 +40,8 @@ if (!$banco)
 */
 //echo " '$fixo'</p>";
 
-$query = "INSERT INTO medico (crm,NOME,EMAIL,CPF,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
-VALUES ('$crm','$nome','$email','$cpf','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
+$query = "INSERT INTO medico (crm,NOME,'USUARIO','SENHA','SENHACONFIRM',EMAIL,CPF,FIXO,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO)
+VALUES ('$crm','$nome','$usuario','$senha','$senhaConfirm','$email','$cpf','$fixo','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado')";
 
 
 

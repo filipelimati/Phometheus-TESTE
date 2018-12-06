@@ -38,7 +38,7 @@ if (!$banco)
 //echo " '$fixo'</p>";
 
 $query = "INSERT INTO paciente (NOME,EMAIL,CPF,FIXO,CELULAR,DATANASC,SEXO,CEP,logradouro,NUMERO,COMPLEMENTO,BAIRRO,CIDADE,ESTADO,OBS)
-VALUES ($nome','$email','$cpf',$fixo','celular','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado','$obs')";
+VALUES ($nome','$email','$cpf',$fixo','$celular','$dataNasc','$sexo','$cep','$logradouro','$endNumero','$complemento','$bairro','$cidade','$estado','$obs')";
 
 
 
