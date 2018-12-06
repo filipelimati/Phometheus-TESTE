@@ -90,74 +90,74 @@ if($_SESSION['numLogin'] == 0 or null){
       <![endif]-->
 
       <!-- VALIDAR CEP -->
-      <script type="text/javascript" >
+  <script type="text/javascript" >
 
-        function limpa_formulário_cep() {
-            //Limpa valores do formulário de cep.
-            document.getElementById('rua').value=("");
-            document.getElementById('bairro').value=("");
-            document.getElementById('cidade').value=("");
-            document.getElementById('uf').value=("");            
-          }
+    function limpa_formulário_cep() {
+        //Limpa valores do formulário de cep.
+        document.getElementById('rua').value=("");
+        document.getElementById('bairro').value=("");
+        document.getElementById('cidade').value=("");
+        document.getElementById('uf').value=("");            
+      }
 
-          function meu_callback(conteudo) {
-            if (!("erro" in conteudo)) {
-            //Atualiza os campos com os valores.
-            document.getElementById('rua').value=(conteudo.logradouro);
-            document.getElementById('bairro').value=(conteudo.bairro);
-            document.getElementById('cidade').value=(conteudo.localidade);
-            document.getElementById('uf').value=(conteudo.uf);            
+      function meu_callback(conteudo) {
+        if (!("erro" in conteudo)) {
+        //Atualiza os campos com os valores.
+        document.getElementById('rua').value=(conteudo.logradouro);
+        document.getElementById('bairro').value=(conteudo.bairro);
+        document.getElementById('cidade').value=(conteudo.localidade);
+        document.getElementById('uf').value=(conteudo.uf);            
+    } //end if.
+    else {
+        //CEP não Encontrado.
+        limpa_formulário_cep();
+        alert("CEP não encontrado.");
+      }
+    }
+    
+    function pesquisacep(valor) {
+
+    //Nova variável "cep" somente com dígitos.
+    var cep = valor.replace(/\D/g, '');
+
+    //Verifica se campo cep possui valor informado.
+    if (cep != "") {
+
+        //Expressão regular para validar o CEP.
+        var validacep = /^[0-9]{8}$/;
+
+        //Valida o formato do CEP.
+        if(validacep.test(cep)) {
+
+            //Preenche os campos com "..." enquanto consulta webservice.
+            document.getElementById('rua').value="...";
+            document.getElementById('bairro').value="...";
+            document.getElementById('cidade').value="...";
+            document.getElementById('uf').value="...";
+            
+            //Cria um elemento javascript.
+            var script = document.createElement('script');
+
+            //Sincroniza com o callback.
+            script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
+
+            //Insere script no documento e carrega o conteúdo.
+            document.body.appendChild(script);
+
         } //end if.
         else {
-            //CEP não Encontrado.
+            //cep é inválido.
             limpa_formulário_cep();
-            alert("CEP não encontrado.");
+            alert("Formato de CEP inválido.");
           }
-        }
-        
-        function pesquisacep(valor) {
-
-        //Nova variável "cep" somente com dígitos.
-        var cep = valor.replace(/\D/g, '');
-
-        //Verifica se campo cep possui valor informado.
-        if (cep != "") {
-
-            //Expressão regular para validar o CEP.
-            var validacep = /^[0-9]{8}$/;
-
-            //Valida o formato do CEP.
-            if(validacep.test(cep)) {
-
-                //Preenche os campos com "..." enquanto consulta webservice.
-                document.getElementById('rua').value="...";
-                document.getElementById('bairro').value="...";
-                document.getElementById('cidade').value="...";
-                document.getElementById('uf').value="...";
-                
-                //Cria um elemento javascript.
-                var script = document.createElement('script');
-
-                //Sincroniza com o callback.
-                script.src = 'https://viacep.com.br/ws/'+ cep + '/json/?callback=meu_callback';
-
-                //Insere script no documento e carrega o conteúdo.
-                document.body.appendChild(script);
-
-            } //end if.
-            else {
-                //cep é inválido.
-                limpa_formulário_cep();
-                alert("Formato de CEP inválido.");
-              }
-        } //end if.
-        else {
-            //cep sem valor, limpa formulário.
-            limpa_formulário_cep();
-          }
-        };
-      </script> 
-    </head>
+    } //end if.
+    else {
+        //cep sem valor, limpa formulário.
+        limpa_formulário_cep();
+      }
+    };
+  </script> 
+</head>
 
     <body>
       
@@ -304,22 +304,7 @@ if($_SESSION['numLogin'] == 0 or null){
                             <div class="form-group col-sm-6">
                               <label>Nome</label>
                               <input name="nome" type="text" class="form-control" placeholder="Digite seu nome" required autofocus >
-                            </div>
-
-                            <div class="form-group col-sm-5">
-                              <label>Usuário</label>
-                              <input name="usuario" type="text" class="form-control" placeholder="Usuário" required="required">
-                            </div>
-
-                            <div class="form-group col-sm-6" id="divSenha" required="required">
-                              <label>Senha</label>
-                              <input name="senha" id="senha" type="password" class="form-control is-invalid" placeholder="Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                            </div>
-
-                            <div class="form-group col-sm-6" id="divsenhaConfirm" required="required">
-                              <label>Confirmar Senha</label>
-                              <input name="senhaConfirm" id="senhaConfirm" type="password" class="form-control" placeholder="Confirmar Senha" pattern=".{8,}" title="No mínimo 8 caracteres">
-                            </div>                              
+                            </div>                            
 
                             <div class="form-group col-sm-4">
                               <label>E-mail</label>
@@ -383,7 +368,7 @@ if($_SESSION['numLogin'] == 0 or null){
                             <div class="form-group col-sm-1">
                               <label>UF</label> 
                               <input name="estado" id="uf" type="text" class="form-control" required>                                 
-                            </div>
+                            </div>          
 
                             <div class="col-md-7">
                               <!--alinhamento dos Botões-->
