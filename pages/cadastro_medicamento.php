@@ -6,7 +6,6 @@ include('conexao.php');
 $nome 			= $_POST ["nome"];
 $laboratorio	= $_POST ["laboratorio"];	//atribuição do campo "nome" vindo do formulário para variavel	
 $descricao		= $_POST ["descricao"];	//atribuição do campo "email" vindo do formulário para variavel
-$DataCadastro	= $_POST ["DataCadastro"];	//atribuição do campo "ddd" vindo do formulário para variavel
 $principioAtivo	= $_POST ["principioAtivo"];	//atribuição do campo "telefone" vindo do formulário para variavel
 $qtd 			= $_POST ["qtd"];	//atribuição do campo "endereco" vindo do formulário para variavel
 $tarja			= $_POST ["tarja"];	//atribuição do campo "cidade" vindo do formulário para variavel
@@ -30,8 +29,8 @@ if (!$banco)
 */
 //echo " '$fixo'</p>";
 
-$query = "INSERT INTO medicamento (NOME,LABORATORIO,DESCRICAO,dataCADASTRO,principioATIVO,QTD,TARJA,USO)
-VALUES ('$nome','$laboratorio','$descricao','$DataCadastro','$principioAtivo','$qtd','$tarja','$uso')";
+$query = "INSERT INTO medicamento (NOME,LABORATORIO,DESCRICAO,PRINC_ATIVO,QUANTIDADE,TARJA,USO_CONT)
+VALUES ('$nome','$laboratorio','$descricao','$principioAtivo','$qtd','$tarja','$uso')";
 
 
 
