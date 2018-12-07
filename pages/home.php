@@ -66,7 +66,7 @@
                     <img src="../img/logo2.png" width="40" height="40" alt=""></img> 
                 </a>
 
-                <a class="navbar-brand" href="home.html">                                                           
+                <a class="navbar-brand" href="home.php">                                                           
                     PROMETHEUS
                 </a>
             </div>
@@ -166,7 +166,7 @@
                         <br/>
 
                         <div class="col-lg-4 col-md-4">
-                            <a href="paciente.html">
+                            <a href="paciente.php">
                                 <div class="panel panel-green">
                                     <div class="panel-heading">
                                         <div class="row">
@@ -183,7 +183,7 @@
                         </div>
                 
                         <div class="col-lg-4 col-md-4">
-                            <a href="consulta.html">
+                            <a href="consulta.php">
                                 <div class="panel panel-primary">
                                     <div class="panel-heading">
                                         <div class="row">
@@ -201,7 +201,7 @@
                         
 
                         <div class="col-lg-4 col-md-4">
-                            <a href="prontuarios.html">
+                            <a href="prontuario.php">
                                 <div class="panel panel-yellow">
                                     <div class="panel-heading">
                                         <div class="row">
